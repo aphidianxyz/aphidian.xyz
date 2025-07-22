@@ -1,8 +1,23 @@
 <script lang="ts">
     import '../app.css';
-    const nav_emojis = ['📓','⚗️','🪲'];
-    const nav_entries = ['blog', 'projects', 'about'];
-    let dark_mode: Boolean = $state(false); </script>
+    const nav_emojis: String[] = ['📓','⚗️','🪲'];
+    const nav_entries: String[] = ['blog', 'projects', 'about'];
+    let dark_mode: Boolean = $state(false);
+
+    let bg_color: String = $state("#F5EDD1");
+    let body_text_color: String = $state("#1E2A18");
+    let theme_icon: String = $state("🌑");
+    let hyperlink_color: String = $state("#566A95");
+    let logo_svg: string = $state("aphid-icon-light.svg");
+    function switchTheme() {
+        dark_mode = !dark_mode;
+        bg_color = dark_mode ?  "#1E2A18" : "#F5EDD1";
+        body_text_color = dark_mode ? "#F5EDD1" : "#1E2A18";
+        hyperlink_color = dark_mode ? "#8490B8" : "#566A95";
+        theme_icon = dark_mode ? "☀️" : "🌑";
+    }
+</script>
+
 
 <svelte:head>
     <title>aphidian.xyz</title>
@@ -10,18 +25,22 @@
 
 <style>
 :global(body) {
-    background-color: #F5EDD1;
     margin: 0;
-    padding: 0;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-self: center;
     justify-content: center;
-    margin-top: 2.5vh;
-    min-height: 95vh;
+    height: calc(90vh + 25px);
 }
 
 section {
@@ -41,27 +60,17 @@ ul, footer {
     font-weight: bold;
     font-size: calc(9vw + 30px);
     margin-left: 1vw; 
-    margin-top: 0;
-    margin-bottom: 1vh;
 }
 
-a:link.sitetitle, a:visited.sitetitle {
-    color: #1E2A18;
-    text-decoration: none;
-}
-
-a:link, a:visited {
-    color: #566A95;
+a:link.sitetitle, a:visited.sitetitle, a:link, a:visited {
     text-decoration: none;
 }
 
 a:hover {
-    color: #91596D;
     text-decoration: underline;
 }
 
 .logo {
-    border-color: black;
     border-style: solid;
     border-radius: 5px;
     border-radius: 10px;
@@ -74,27 +83,54 @@ footer {
     text-align: center;
 }
 
-nav {
+nav, .themeSwitcher {
     font-size: calc(1vw + 20px);
 }
+
+.themeSwitcher {
+    align-self: flex-end;
+    margin-right: 0.5vw;
+    margin-top: 0.5vh;
+	background: none;
+	border: none;
+}
+
+
 </style>
 
-<main>
-    <section>
-        <!-- TODO: Replace placeholder img -->
-        <img class="logo" src="funny-dog-dog-on-a-balloon.gif" alt="aphidian logo">
-        <a class="sitetitle" href="/">aphidian</a>
-    </section>
-    <nav>
-        <ul style:list-style="none">
-            {#each nav_entries as entry, emoji_index}
-                <li>
-                     <a href="/{entry}">{nav_emojis[emoji_index]} {entry}</a>
-                </li>
-            {/each}
-        </ul>
-    </nav>
-</main>
-<footer>
-    <a href="/">aphidian.xyz</a>
-</footer>
+<div class="mainContainer" style:background-color={bg_color}>
+    <button class="themeSwitcher" onclick={switchTheme}>
+        {theme_icon}
+    </button>
+    <main>
+        <section style:margin-bottom="1vh">
+            <img 
+                style:color={body_text_color}
+                class="logo" src={logo_svg} alt="aphidian logo" 
+            >
+            <a 
+                style:color={body_text_color}
+                class="sitetitle" href="/"
+            >
+                aphidian
+            </a>
+        </section>
+        <nav>
+            <ul style:list-style="none">
+                {#each nav_entries as entry, emoji_index}
+                    <li>
+                        <a 
+                            style:color={hyperlink_color}
+                            href="/{entry}"
+                        >
+                            {nav_emojis[emoji_index]} {entry}
+                        </a>
+                    </li>
+                {/each}
+            </ul>
+        </nav>
+    </main>
+    <footer>
+        <a style:color={hyperlink_color} href="/">aphidian.xyz</a>
+    </footer>
+</div>
