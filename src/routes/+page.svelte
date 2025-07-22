@@ -1,8 +1,10 @@
 <script lang="ts">
     import '../app.css';
+    import Footer from '../lib/components/footer.svelte';
+
     const nav_emojis: string[] = ['📓','⚗️','🪲'];
     const nav_entries: string[] = ['blog', 'projects', 'about'];
-    const entry_descs: string[] = ['articles written by aphids', 'software and services developed and maintained by aphids', 'about aphids'];
+    const entry_descs: string[] = ['writings of aphids', 'aphids developed and maintained software', 'about aphids'];
     let dark_mode: boolean = $state(false);
 
     let bg_color: string = $state("#F5EDD1");
@@ -19,12 +21,6 @@
         theme_icon = dark_mode ? "☀️" : "🌑";
     }
 </script>
-
-
-<svelte:head>
-    <title>aphidian.xyz</title>
-</svelte:head>
-
 <style>
 :global(body) {
     margin: 0;
@@ -51,20 +47,20 @@ section {
     justify-items: center;
 }
 
-ul, footer {
+ul {
     font-family: AlegreyaSans;
     font-weight: normal;
     font-style: normal;
 }
 
-.sitetitle {
+.site-title {
     font-family: Alegreya;
     font-weight: bold;
     font-size: calc(9vw + 30px);
     margin-left: 1vw; 
 }
 
-a:link.sitetitle, a:visited.sitetitle, a:link, a:visited {
+a:link.site-title, a:visited.site-title, a:link, a:visited {
     text-decoration: none;
 }
 
@@ -80,11 +76,6 @@ a:hover {
     height: auto; 
 }
 
-footer {
-    width: 100%;
-    text-align: center;
-}
-
 nav, .themeSwitcher {
     font-size: calc(1vw + 20px);
 }
@@ -96,9 +87,11 @@ nav, .themeSwitcher {
 	background: none;
 	border: none;
 }
-
-
 </style>
+
+<svelte:head>
+    <title>aphidian.xyz</title>
+</svelte:head>
 
 <div class="mainContainer" style:background-color={bg_color}>
     <button class="themeSwitcher" onclick={switchTheme} title="switch themes">
@@ -113,7 +106,7 @@ nav, .themeSwitcher {
             <h1>
             <a 
                 style:color={body_text_color}
-                class="sitetitle" href="/"
+                class="site-title" href="/"
             >
                 aphidian
             </a>
@@ -135,7 +128,5 @@ nav, .themeSwitcher {
             </ul>
         </nav>
     </main>
-    <footer>
-        <a style:color={hyperlink_color} href="/">aphidian.xyz</a>
-    </footer>
+    <Footer {hyperlink_color}/>
 </div>
