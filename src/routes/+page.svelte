@@ -74,8 +74,8 @@ a:hover {
 
 .logo {
     border-style: solid;
-    border-radius: 5px;
-    border-radius: 10px;
+    border-radius: 8px;
+    border-width: calc(0.25vw + 2px);
     width: 12vw;
     height: auto; 
 }
