@@ -1,19 +1,21 @@
 <script lang="ts">
     import '../app.css';
-    const nav_emojis: String[] = ['📓','⚗️','🪲'];
-    const nav_entries: String[] = ['blog', 'projects', 'about'];
-    let dark_mode: Boolean = $state(false);
+    const nav_emojis: string[] = ['📓','⚗️','🪲'];
+    const nav_entries: string[] = ['blog', 'projects', 'about'];
+    const entry_descs: string[] = ['articles written by aphids', 'software and services developed and maintained by aphids', 'about aphids'];
+    let dark_mode: boolean = $state(false);
 
-    let bg_color: String = $state("#F5EDD1");
-    let body_text_color: String = $state("#1E2A18");
-    let theme_icon: String = $state("🌑");
-    let hyperlink_color: String = $state("#566A95");
+    let bg_color: string = $state("#F5EDD1");
+    let body_text_color: string = $state("#1E2A18");
+    let theme_icon: string = $state("🌑");
+    let hyperlink_color: string = $state("#5B741B");
     let logo_svg: string = $state("aphid-icon-light.svg");
     function switchTheme() {
         dark_mode = !dark_mode;
         bg_color = dark_mode ?  "#1E2A18" : "#F5EDD1";
         body_text_color = dark_mode ? "#F5EDD1" : "#1E2A18";
-        hyperlink_color = dark_mode ? "#8490B8" : "#566A95";
+        hyperlink_color = dark_mode ? "#89955B" : "#5B741B";
+        logo_svg = dark_mode ? "aphid-icon-dark.svg" : "aphid-icon-light.svg";
         theme_icon = dark_mode ? "☀️" : "🌑";
     }
 </script>
@@ -99,7 +101,7 @@ nav, .themeSwitcher {
 </style>
 
 <div class="mainContainer" style:background-color={bg_color}>
-    <button class="themeSwitcher" onclick={switchTheme}>
+    <button class="themeSwitcher" onclick={switchTheme} title="switch themes">
         {theme_icon}
     </button>
     <main>
@@ -108,22 +110,25 @@ nav, .themeSwitcher {
                 style:color={body_text_color}
                 class="logo" src={logo_svg} alt="aphidian logo" 
             >
+            <h1>
             <a 
                 style:color={body_text_color}
                 class="sitetitle" href="/"
             >
                 aphidian
             </a>
+            </h1>
         </section>
         <nav>
             <ul style:list-style="none">
-                {#each nav_entries as entry, emoji_index}
+                {#each nav_entries as entry, i}
                     <li>
                         <a 
                             style:color={hyperlink_color}
                             href="/{entry}"
+                            title="{entry_descs[i]}"
                         >
-                            {nav_emojis[emoji_index]} {entry}
+                            {nav_emojis[i]} {entry}
                         </a>
                     </li>
                 {/each}
