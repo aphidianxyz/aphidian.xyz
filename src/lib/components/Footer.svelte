@@ -2,6 +2,16 @@
     let { hyperlink_color } = $props()
 </script>
 
+<style>
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
 <footer
     style:font-family="AlegreyaSans"
     style:width="100%"
@@ -11,8 +21,8 @@
 >
     <a 
         style:color={hyperlink_color}
-        style:text-decoration="none"
-        href="/">
+        href="/"
+    >
         aphidian.xyz
     </a>
 </footer>

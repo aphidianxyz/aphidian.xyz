@@ -1,7 +1,9 @@
 <script lang="ts">
     import '../app.css';
-    import Footer from '../lib/components/footer.svelte';
+    import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
+    import Footer from '$lib/components/Footer.svelte';
 
+    const nav_font_size: string = 'calc(1vw + 20px)'
     const nav_emojis: string[] = ['📓','⚗️','🪲'];
     const nav_entries: string[] = ['blog', 'projects', 'about'];
     const entry_descs: string[] = ['writings of aphids', 'aphids developed and maintained software', 'about aphids'];
@@ -21,72 +23,66 @@
         theme_icon = dark_mode ? "☀️" : "🌑";
     }
 </script>
+
 <style>
-:global(body) {
-    margin: 0;
-}
+    :global(body) {
+        margin: 0;
+    }
 
-.mainContainer {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
+    .mainContainer {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: center;
-    justify-content: center;
-    height: calc(90vh + 25px);
-}
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-self: center;
+        justify-content: center;
+        height: calc(90vh + 25px);
+    }
 
-section {
-    display: flex;
-    align-items: center;
-    justify-items: center;
-}
+    section {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
 
-ul {
-    font-family: AlegreyaSans;
-    font-weight: normal;
-    font-style: normal;
-}
+    ul {
+        font-family: AlegreyaSans;
+        font-weight: normal;
+        font-style: normal;
+    }
 
-.site-title {
-    font-family: Alegreya;
-    font-weight: bold;
-    font-size: calc(9vw + 30px);
-    margin-left: 1vw; 
-}
+    .site-title {
+        font-family: Alegreya;
+        font-weight: bold;
+        font-size: calc(9vw + 30px);
+        margin-left: 1vw; 
+    }
 
-a:link.site-title, a:visited.site-title, a:link, a:visited {
-    text-decoration: none;
-}
+    a:link.site-title, a:visited.site-title, a:link, a:visited {
+        text-decoration: none;
+    }
 
-a:hover {
-    text-decoration: underline;
-}
+    a:hover {
+        text-decoration: underline;
+    }
 
-.logo {
-    border-style: solid;
-    border-radius: 8px;
-    border-width: calc(0.25vw + 2px);
-    width: 12vw;
-    height: auto; 
-}
+    .logo {
+        border-style: solid;
+        border-radius: 8px;
+        border-width: calc(0.25vw + 2px);
+        width: 12vw;
+        height: auto; 
+    }
 
-nav, .themeSwitcher {
-    font-size: calc(1vw + 20px);
-}
+    nav {
+        font-size: calc(1vw + 20px);
+    }
 
-.themeSwitcher {
-    align-self: flex-end;
-    margin-right: 0.5vw;
-    margin-top: 0.5vh;
-	background: none;
-	border: none;
-}
 </style>
 
 <svelte:head>
@@ -94,9 +90,7 @@ nav, .themeSwitcher {
 </svelte:head>
 
 <div class="mainContainer" style:background-color={bg_color}>
-    <button class="themeSwitcher" onclick={switchTheme} title="switch themes">
-        {theme_icon}
-    </button>
+    <ThemeSwitcher {theme_icon} icon_size={nav_font_size} {switchTheme} />
     <main>
         <section style:margin-bottom="1vh">
             <img 
