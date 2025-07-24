@@ -8,8 +8,8 @@
 
     let themeSwitcherIconSize: string = "calc(1vw + 10px)";
     let bgColor: string = $derived(darkMode.state ? data.palette.tertiary.dark : data.palette.tertiary.light);
-    let hyperlinkColor: string = $state(darkMode.state ? data.palette.secondary.dark : data.palette.secondary.light);
-    let themeIcon: string = $state(darkMode.state ? "☀️" : "🌑");
+    let hyperlinkColor: string = $derived(darkMode.state ? data.palette.secondary.dark : data.palette.secondary.light);
+    let themeIcon: string = $derived(darkMode.state ? "☀️" : "🌑");
     function switchTheme() {
         darkMode.state = !darkMode.state;
     }
