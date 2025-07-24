@@ -1,5 +1,5 @@
 <script lang="ts">
-    let { theme_icon, icon_size, switchTheme } = $props()
+    let { themeIcon, iconSize, switchTheme } = $props()
 </script>
 
 <style>
@@ -13,8 +13,8 @@
 </style>
 
 <button
-    style:font-size={icon_size}
+    style:font-size={iconSize}
     onclick={switchTheme} title="switch themes"
 >
-    {theme_icon}
+    {themeIcon}
 </button>
