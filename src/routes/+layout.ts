@@ -13,8 +13,12 @@ export const load: LayoutLoad = () => {
             },
             tertiary: {
                 light: "#F5EDD1",
-                dark: "#1E2A18",
+                dark: "#151914",
             },
+            accents: {
+                light: "#8B5C2D",
+                dark: "#BA7A3B"
+            }
         },
         icon: {
             light: "/aphid-icon-light.svg",

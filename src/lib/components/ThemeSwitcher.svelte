@@ -1,5 +1,9 @@
 <script lang="ts">
-    let { themeIcon, iconSize, switchTheme } = $props()
+    let { themeIcon, iconSize } = $props()
+    import { darkMode } from "../../routes/darkModeState.svelte";
+    function switchTheme() {
+        darkMode.state = !darkMode.state;
+    }
 </script>
 
 <style>
