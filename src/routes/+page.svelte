@@ -1,5 +1,6 @@
 <script lang="ts">
-    import '../app.css';
+    import Logo from '$lib/components/Logo.svelte';
+    import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
     import type { LayoutProps } from './$types';
     import { darkMode } from './darkModeState.svelte';
     let { data }: LayoutProps = $props();
@@ -8,16 +9,15 @@
     const nav_entries: string[] = ['blog', 'projects', 'about'];
     const entry_descs: string[] = ['writings of aphids', 'aphids developed and maintained software', 'about aphids'];
 
-    let titleColor: string = $derived(darkMode.state ? data.palette.primary.dark : data.palette.primary.light);
-    let logoSVGFile: string = $derived(darkMode.state ? data.icon.dark : data.icon.light);
-    let hyperLinkColor: string = $derived(darkMode.state ? data.palette.secondary.dark : data.palette.secondary.light);
+    let palette = data.palette;
+    let icon = data.icon;
+    let dark = $derived(darkMode.state);
+    let titleColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
+    let logoFile: string = $derived(dark ? icon.dark : icon.light);
+    let hyperLinkColor: string = $derived(dark ? palette.secondary.dark : palette.secondary.light);
 </script>
 
 <style>
-    :global(body) {
-        margin: 0;
-    }
-
     main {
         display: flex;
         flex-direction: column;
@@ -54,14 +54,6 @@
         text-decoration: underline;
     }
 
-    .logo {
-        border-style: solid;
-        border-radius: 8px;
-        border-width: calc(0.25vw + 2px);
-        width: 12vw;
-        height: auto; 
-    }
-
     nav {
         font-size: calc(1vw + 20px);
     }
@@ -72,12 +64,16 @@
     <title>aphidian.xyz</title>
 </svelte:head>
 
+<ThemeSwitcher />
 <main>
     <section style:margin-bottom="1vh">
-        <img 
-            style:color={titleColor}
-            class="logo" src={logoSVGFile} alt="aphidian logo" 
-        >
+        <Logo 
+            imgHeight="auto" 
+            imgWidth="12vw"
+            borderWidth="calc(0.25vw + 2px)"
+            borderColor={titleColor}
+            {logoFile}
+        />
         <h1>
         <a 
             style:color={titleColor}

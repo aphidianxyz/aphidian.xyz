@@ -1,5 +1,5 @@
 <script lang="ts">
-    let { hyperlinkColor } = $props()
+    let { footerLinkColor }: { footerLinkColor: string } = $props();
 </script>
 
 <style>
@@ -20,7 +20,7 @@
     style:font-style="normal"
 >
     <a 
-        style:color={hyperlinkColor}
+        style:color={footerLinkColor}
         href="/"
     >
         aphidian.xyz

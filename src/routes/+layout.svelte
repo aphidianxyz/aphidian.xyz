@@ -1,16 +1,22 @@
 <script lang="ts">
+    import '../app.css';
     import type { LayoutProps } from './$types';
     let { data, children }: LayoutProps = $props();
 
     import { darkMode } from './darkModeState.svelte'; 
-    import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte'
     import Footer from '$lib/components/Footer.svelte';
 
-    let themeSwitcherIconSize: string = "calc(1vw + 10px)";
-    let bgColor: string = $derived(darkMode.state ? data.palette.tertiary.dark : data.palette.tertiary.light);
-    let footerLinkColor: string = $derived(darkMode.state ? data.palette.accents.dark : data.palette.accents.light)
-    let themeIcon: string = $derived(darkMode.state ? "☀️" : "🌑");
+    let palette = data.palette;
+    let dark = $derived(darkMode.state);
+    let bgColor: string = $derived(dark ? palette.tertiary.dark : palette.tertiary.light);
+    let footerLinkColor: string = $derived(dark ? palette.accents.dark : palette.accents.light)
 </script>
+
+<style>
+    :global(body) {
+        margin: 0;
+    }
+</style>
 
 <div 
     style:display="flex"
@@ -18,8 +24,7 @@
     style:height="100vh"
     style:background-color={bgColor}
 >
-    <ThemeSwitcher {themeIcon} iconSize={themeSwitcherIconSize} />
     {@render children()}
-    <Footer hyperlinkColor={footerLinkColor}/>
+    <Footer {footerLinkColor} />
 </div>
 
