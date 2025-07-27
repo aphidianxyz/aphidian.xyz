@@ -1,6 +1,8 @@
 <script lang="ts">
     import Logo from '$lib/components/Logo.svelte';
     import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
+    import Title from '$lib/components/Title.svelte';
+    import TitleBar from '$lib/components/TitleBar.svelte';
     import type { LayoutProps } from './$types';
     import { darkMode } from './darkModeState.svelte';
     let { data }: LayoutProps = $props();
@@ -39,14 +41,7 @@
         font-style: normal;
     }
 
-    .site-title {
-        font-family: Alegreya;
-        font-weight: bold;
-        font-size: calc(9vw + 30px);
-        margin-left: 1vw; 
-    }
-
-    a:link.site-title, a:visited.site-title, a:link, a:visited {
+    a {
         text-decoration: none;
     }
 
@@ -73,15 +68,12 @@
             borderWidth="calc(0.25vw + 2px)"
             borderColor={titleColor}
             {logoFile}
+            margin="0px 1vw 0px 0px"
         />
-        <h1>
-        <a 
-            style:color={titleColor}
-            class="site-title" href="/"
-        >
-            aphidian
-        </a>
-        </h1>
+        <Title
+            fontSize="calc(9vw + 30px)"
+            {titleColor}
+        />
     </section>
     <nav>
         <ul style:list-style="none">
