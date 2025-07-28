@@ -30,8 +30,8 @@
     import ThemeSwitcher from "$lib/components/ThemeSwitcher.svelte";
 
     // colors
-    let palette = data.palette;
-    let icon = data.icon;
+    const palette = data.palette;
+    const icon = data.icon;
     let dark = $derived(darkMode.state);
     let titleColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
     let hyperlinkColor: string = $derived(dark ? palette.secondary.dark : palette.secondary.light);
