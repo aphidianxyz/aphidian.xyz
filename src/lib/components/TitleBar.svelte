@@ -1,18 +1,26 @@
 <script lang="ts">
-    import type { LayoutProps } from "../../routes/$types";
     import type { NavEntries } from "$lib/data-structures/NavEntries.ts";
     import { darkMode } from "../../routes/darkModeState.svelte";
     import '$lib/components/ThemeSwitcher.svelte';
-    let { data, imgWidth, imgHeight, imgMargin, borderWidth, titleMargin, titleFontSize, navFontSize, navEntries }:
-    {
+    const { 
+        data,
+        imgWidth = "calc(2.5vw + 20px)", 
+        imgHeight = "auto", 
+        imgMargin = "0px 0.5vw 0px 0px", 
+        borderWidth = "3px", 
+        titleMargin = "0.5vh 1vw 0px 0px", 
+        titleFontSize = "calc(2.5vw + 20px)", 
+        navFontSize = "calc(0.75vw + 10px)",
+        navEntries
+    }:{
         data: any 
-        imgWidth: string,
-        imgHeight: string,
-        imgMargin: string,
-        borderWidth: string,
-        titleMargin: string,
-        titleFontSize: string,
-        navFontSize: string,
+        imgWidth?: string,
+        imgHeight?: string,
+        imgMargin?: string,
+        borderWidth?: string,
+        titleMargin?: string,
+        titleFontSize?: string,
+        navFontSize?: string,
         navEntries: NavEntries
     }= $props();
 

@@ -1,15 +1,19 @@
 <script lang="ts">
     import Logo from '$lib/components/Logo.svelte';
-    import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
     import Title from '$lib/components/Title.svelte';
-    import TitleBar from '$lib/components/TitleBar.svelte';
+    import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
     import type { LayoutProps } from './$types';
     import { darkMode } from './darkModeState.svelte';
     let { data }: LayoutProps = $props();
 
-    const nav_emojis: string[] = ['📓','⚗️','🪲'];
-    const nav_entries: string[] = ['blog', 'projects', 'about'];
-    const entry_descs: string[] = ['writings of aphids', 'aphids developed and maintained software', 'about aphids'];
+    const ne = data.navElements;
+    const blog = ne.blog;
+    const projects = ne.projects;
+    const about = ne.about;
+    const nav_emojis: string[] = [blog.emoji, projects.emoji, about.emoji];
+    const nav_entries: string[] = [blog.name, projects.name, about.name];
+    const entry_descs: string[] = [blog.desc, projects.desc, about.desc];
+    const entry_dests: string[] = [blog.dest, projects.dest, about.dest];
 
     let palette = data.palette;
     let icon = data.icon;
@@ -52,7 +56,6 @@
     nav {
         font-size: calc(1vw + 20px);
     }
-
 </style>
 
 <svelte:head>
@@ -81,7 +84,7 @@
                 <li>
                     <a 
                         style:color={hyperLinkColor}
-                        href="/{entry}"
+                        href="{entry_dests[i]}"
                         title="{entry_descs[i]}"
                     >
                         {nav_emojis[i]} {entry}

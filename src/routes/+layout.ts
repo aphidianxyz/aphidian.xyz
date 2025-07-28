@@ -24,5 +24,31 @@ export const load: LayoutLoad = () => {
             light: "/aphid-icon-light.svg",
             dark: "/aphid-icon-dark.svg",
         },
+        navElements: {
+            home: {
+                name: "home",
+                dest: "/",
+                emoji: "🏡",
+                desc: "homepage",
+            },
+            blog: {
+                name: "blog",
+                dest: "/blog",
+                emoji: "📓",
+                desc: "aphids' writings",
+            },
+            projects: {
+                name: "projects",
+                dest: "/projects",
+                emoji: "⚗️",
+                desc: "aphids' projects",
+            },
+            about: {
+                name: "about",
+                dest: "/about",
+                emoji: "🪲",
+                desc: "about aphids",
+            },
+        }
     }
 }

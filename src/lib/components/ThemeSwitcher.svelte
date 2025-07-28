@@ -4,6 +4,9 @@
     let { 
         margin = '0 0 0 0', 
         iconSize = 'calc(1vw + 10px)'
+    }:{
+        margin?: string,
+        iconSize?: string
     } = $props();
     let themeIcon: string = $derived(darkMode.state ? "☀️" : "🌑");
 

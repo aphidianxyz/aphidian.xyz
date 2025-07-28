@@ -7,21 +7,21 @@
 
     const ne = data.navElements;
     const home = ne.home;
+    const blog = ne.blog;
     const projects = ne.projects;
-    const about = ne.about;
-    const blogNavEntries: NavEntries = {
-        navEntryNames: [home.name, projects.name, about.name],
-        navDest: [home.dest, projects.dest, about.dest],
-        navEmoji: [home.emoji, projects.emoji, about.emoji],
-        navDesc: [home.desc, projects.desc, about.desc],
+    const aboutNavEntries: NavEntries = {
+        navEntryNames: [home.name, blog.name, projects.name],
+        navDest: [home.dest, blog.dest, projects.dest],
+        navEmoji: [home.emoji, blog.emoji, projects.emoji],
+        navDesc: [home.desc, blog.desc, projects.desc],
     }
 </script>
 
 <svelte:head>
-    <title>blog | aphidian.xyz</title>
+    <title>about | aphidian.xyz</title>
 </svelte:head>
 
 <TitleBar 
     {data}
-    navEntries={blogNavEntries}
+    navEntries={aboutNavEntries}
 />
