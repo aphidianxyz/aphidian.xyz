@@ -1,7 +1,19 @@
 <script lang="ts">
+    import type { LayoutProps } from "../../routes/$types";
+    import type { NavEntries } from "$lib/data-structures/NavEntries.ts";
     import { darkMode } from "../../routes/darkModeState.svelte";
     import '$lib/components/ThemeSwitcher.svelte';
-    let { data, imgWidth, imgHeight, imgMargin, borderWidth, titleMargin, fontSize } = $props();
+    let { data, imgWidth, imgHeight, imgMargin, borderWidth, titleMargin, fontSize, navEntries }:
+    {
+        data: any 
+        imgWidth: string,
+        imgHeight: string,
+        imgMargin: string,
+        borderWidth: string,
+        titleMargin: string,
+        fontSize: string,
+        navEntries: NavEntries
+    }= $props();
 
     // components
     import Logo from "./Logo.svelte";
@@ -12,9 +24,16 @@
     let icon = data.icon;
     let dark = $derived(darkMode.state);
     let titleColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
+    let hyperlinkColor: string = $derived(dark ? palette.secondary.dark : palette.secondary.light);
 
     // logo
     let logoFile: string = $derived(dark ? icon.dark : icon.light);
+
+    // nav
+    const navEntryNames = navEntries.navEntryNames;
+    const navEntryDests = navEntries.navDest;
+    const navEntryEmojis = navEntries.navEmoji;
+    const navEntryDescs = navEntries.navDesc;
 
 </script>
 
@@ -24,9 +43,23 @@
         align-items: center;
         margin-left: 1vw;
     }
+
     nav {
         display: flex;
+        align-self: self-end;
+        padding-bottom: 1.25vw;
+        font-family: AlegreyaSans;
+        gap: 1vw;
     }
+
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
 </style>
 
 <div class="titleAndNav">
@@ -43,6 +76,15 @@
         {fontSize} 
         {titleColor}
     />
-    <nav>
-    </nav>
+        <nav>
+            {#each navEntryNames as navEntryName, i}
+                    <a 
+                        style:color={hyperlinkColor}
+                        style:font-size={"calc(0.5vw + 10px)"}
+                        href="{navEntryDests[i]}" title={navEntryDescs[i]}
+                    >
+                        {navEntryEmojis[i]} {navEntryName}
+                    </a>
+            {/each}
+        </nav>
 </div>
