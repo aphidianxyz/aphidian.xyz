@@ -19,7 +19,7 @@
     const icon = data.icon;
     let dark = $derived(darkMode.state);
     let titleColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
-    let logoFile: string = $derived(dark ? icon.dark : icon.light);
+    let logoFile: string = $derived(dark ? icon.full.dark : icon.full.light);
     let hyperLinkColor: string = $derived(dark ? palette.secondary.dark : palette.secondary.light);
 </script>
 

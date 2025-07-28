@@ -3,7 +3,7 @@
 
     let { 
         margin = '0 0 0 0', 
-        iconSize = 'calc(1vw + 10px)'
+        iconSize = 'calc(1.5vw + 10px)'
     }:{
         margin?: string,
         iconSize?: string

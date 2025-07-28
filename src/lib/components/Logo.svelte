@@ -1,17 +1,34 @@
 <script lang="ts">
-    // NOTE: don't know if there's an idiomatic way to define a lot of variable types
-    let { imgHeight, imgWidth, borderWidth, borderColor, logoFile, margin }: 
-        { imgHeight: string, imgWidth: string, borderWidth: string, borderColor: string,
-        logoFile: string, margin: string }= $props();
+    const {
+        imgHeight,
+        imgWidth,
+        borderStyle = "solid",
+        borderRadius = "8px",
+        borderWidth,
+        borderColor,
+        logoFile,
+        margin,
+        alt = "aphidian logo",
+    }: {
+        imgHeight: string,
+        imgWidth: string,
+        borderStyle?: string,
+        borderRadius?: string,
+        borderWidth: string,
+        borderColor: string,
+        logoFile: string,
+        margin: string
+        alt?: string,
+    }= $props();
 </script>
 
 <img
-    style:border-style="solid"
-    style:border-radius="8px"
+    style:border-style={borderStyle}
+    style:border-radius={borderRadius}
     style:height={imgHeight}
     style:width={imgWidth}
     style:border-width={borderWidth}
     style:color={borderColor}
     style:margin={margin}
-    src={logoFile} alt={"aphidian logo"}
+    src={logoFile} {alt}
 >

@@ -5,11 +5,11 @@
     import type { LayoutProps } from "../../routes/$types";
     let { data }: LayoutProps = $props();
 
-    let ne = data.navElements;
-    let home = ne.home;
-    let blog = ne.blog;
-    let about = ne.about;
-    let projectsNavEntries: NavEntries = {
+    const ne = data.navElements;
+    const home = ne.home;
+    const blog = ne.blog;
+    const about = ne.about;
+    const projectsNavEntries: NavEntries = {
         navEntryNames: [home.name, blog.name, about.name],
         navDest: [home.dest, blog.dest, about.dest],
         navEmoji: [home.emoji, blog.emoji, about.emoji],

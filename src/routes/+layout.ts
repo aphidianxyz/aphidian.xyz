@@ -21,8 +21,14 @@ export const load: LayoutLoad = () => {
             }
         },
         icon: {
-            light: "/aphid-icon-light.svg",
-            dark: "/aphid-icon-dark.svg",
+            full: {
+                light: "/aphid-icon-light.svg",
+                dark: "/aphid-icon-dark.svg",
+            },
+            cropped: {
+                light: "/aphid-icon-crop-light.svg",
+                dark: "/aphid-icon-crop-dark.svg"
+            },
         },
         navElements: {
             home: {

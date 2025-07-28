@@ -37,7 +37,7 @@
     let hyperlinkColor: string = $derived(dark ? palette.secondary.dark : palette.secondary.light);
 
     // logo
-    let logoFile: string = $derived(dark ? icon.dark : icon.light);
+    let logoFile: string = $derived(dark ? icon.cropped.dark : icon.cropped.light);
 
     // nav
     const navEntryNames = navEntries.navEntryNames;
