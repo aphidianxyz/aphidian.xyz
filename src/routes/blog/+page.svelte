@@ -19,11 +19,12 @@
 
 <TitleBar 
     {data}
-    imgWidth="calc(3vw + 20px)"
+    imgWidth="calc(2.5vw + 20px)"
     imgHeight="auto"
     imgMargin="0px 0.5vw 0px 0px"
     borderWidth="3px"
     titleMargin="0.5vh 1vw 0px 0px"
-    fontSize="calc(3vw + 20px)"
+    titleFontSize="calc(2.5vw + 20px)"
+    navFontSize="calc(0.75vw + 10px)"
     navEntries={blogNavEntries}
-/><!-- TODO: implement naventries data structure and populate it -->
+/>

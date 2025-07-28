@@ -59,7 +59,7 @@
     <title>aphidian.xyz</title>
 </svelte:head>
 
-<ThemeSwitcher />
+<ThemeSwitcher margin="1vh 1vw 0 0"/>
 <main>
     <section style:margin-bottom="1vh">
         <Logo 

@@ -3,7 +3,7 @@
     import type { NavEntries } from "$lib/data-structures/NavEntries.ts";
     import { darkMode } from "../../routes/darkModeState.svelte";
     import '$lib/components/ThemeSwitcher.svelte';
-    let { data, imgWidth, imgHeight, imgMargin, borderWidth, titleMargin, fontSize, navEntries }:
+    let { data, imgWidth, imgHeight, imgMargin, borderWidth, titleMargin, titleFontSize, navFontSize, navEntries }:
     {
         data: any 
         imgWidth: string,
@@ -11,13 +11,15 @@
         imgMargin: string,
         borderWidth: string,
         titleMargin: string,
-        fontSize: string,
+        titleFontSize: string,
+        navFontSize: string,
         navEntries: NavEntries
     }= $props();
 
     // components
     import Logo from "./Logo.svelte";
     import Title from "./Title.svelte";
+    import ThemeSwitcher from "$lib/components/ThemeSwitcher.svelte";
 
     // colors
     let palette = data.palette;
@@ -38,6 +40,11 @@
 </script>
 
 <style>
+    .mainContainer {
+        display: flex;
+        justify-content: space-between;
+    }
+
     .titleAndNav {
         display: flex;
         align-items: center;
@@ -62,29 +69,34 @@
 
 </style>
 
-<div class="titleAndNav">
-    <Logo 
-        {imgWidth}
-        {imgHeight}
-        margin={imgMargin}
-        {borderWidth}
-        borderColor={titleColor}
-        {logoFile} 
-    /> 
-    <Title 
-        margin={titleMargin}
-        {fontSize} 
-        {titleColor}
-    />
+<div class="mainContainer">
+    <div class="titleAndNav">
+        <Logo 
+            {imgWidth}
+            {imgHeight}
+            margin={imgMargin}
+            {borderWidth}
+            borderColor={titleColor}
+            {logoFile} 
+        /> 
+        <Title 
+            margin={titleMargin}
+            fontSize={titleFontSize} 
+            {titleColor}
+        />
         <nav>
             {#each navEntryNames as navEntryName, i}
-                    <a 
-                        style:color={hyperlinkColor}
-                        style:font-size={"calc(0.5vw + 10px)"}
-                        href="{navEntryDests[i]}" title={navEntryDescs[i]}
-                    >
-                        {navEntryEmojis[i]} {navEntryName}
-                    </a>
+                <a 
+                    style:color={hyperlinkColor}
+                    style:font-size={navFontSize}
+                    href="{navEntryDests[i]}" title={navEntryDescs[i]}
+                >
+                    {navEntryEmojis[i]} {navEntryName}
+                </a>
             {/each}
         </nav>
+    </div>
+    <div class="themeSwitcher">
+        <ThemeSwitcher margin="0.5vh 0vw 0 0"/>
+    </div>
 </div>

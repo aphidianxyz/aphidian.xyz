@@ -1,8 +1,12 @@
 <script lang="ts">
     import { darkMode } from "../../routes/darkModeState.svelte";
 
-    let iconSize: string = "calc(1vw + 10px)";
+    let { 
+        margin = '0 0 0 0', 
+        iconSize = 'calc(1vw + 10px)'
+    } = $props();
     let themeIcon: string = $derived(darkMode.state ? "☀️" : "🌑");
+
     function switchTheme() {
         darkMode.state = !darkMode.state;
     }
@@ -11,8 +15,6 @@
 <style>
     button {
         align-self: flex-end;
-        margin-right: 0.5vw;
-        margin-top: 0.5vh;
         background: none;
         border: none;
     }
@@ -20,6 +22,7 @@
 
 <button
     style:font-size={iconSize}
+    style:margin={margin}
     onclick={switchTheme} title="switch themes"
 >
     {themeIcon}
