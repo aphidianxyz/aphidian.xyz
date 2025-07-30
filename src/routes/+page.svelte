@@ -30,7 +30,7 @@
         align-items: center;
         align-self: center;
         justify-content: center;
-        height: calc(90vh + 20px);
+        height: calc(80vh + 20px);
     }
 
     section {
@@ -56,13 +56,20 @@
     nav {
         font-size: calc(1vw + 20px);
     }
+
+    .themeSwitcher {
+        display: flex;
+        justify-content: end;
+    }
 </style>
 
 <svelte:head>
     <title>aphidian.xyz</title>
 </svelte:head>
 
-<ThemeSwitcher margin="1vh 1vw 0 0"/>
+<div class="themeSwitcher">
+    <ThemeSwitcher margin="1vh 1vw 0 0"/>
+</div>
 <main>
     <section style:margin-bottom="1vh">
         <Logo 

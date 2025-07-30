@@ -20,6 +20,8 @@
     const palette = data.palette;
     let dark = $derived(darkMode.state);
     let titleColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
+    let blogEntryLinkColor: string = $derived(dark ? palette.secondary.dark : palette.secondary.light);
+    let tagLinkColor: string = $derived(dark ? palette.accents.dark : palette.accents.light);
 
     // blog entries
     const entries = data.entries;
@@ -42,13 +44,40 @@
         width: calc(50vw + 200px);
     }
 
-    .pageTitle {
+    .tagContainer {
+        text-align: end;
+        justify-content: end;
+        width: 30%;
+        flex-shrink: 0;
+        gap: 0.25vw;
+    }
+
+    .blogEntryLink, .tagLink, .pageTitle {
         text-decoration: none;
+    }
+
+    .blogEntryLink:hover, .tagLink:hover, .pageTitle:hover {
+        text-decoration: underline;
+    }
+
+    .blogEntryLink, .tagContainer {
+        font-family: AlegreyaSans;
+        font-size: calc(0.6vw + 15px);
+    }
+
+    .blogEntryLink { 
+        width: 70%;
+    }
+
+    .tagLink {
+        font-weight: bold;
     }
 
     .blogEntryContainer {
         display: flex;
         justify-content: space-between;
+        gap: 10vw;
+        margin-bottom: 15px;
     }
 
     h1, h2 {
@@ -98,14 +127,18 @@
     <nav>
         {#each entries as entry}
             <div class="blogEntryContainer">
-                <a href="/blog/{entry.slug}">{entry.title}</a>
-                <div class="tagContainer">
+                <!-- HACK: The extra encapsulation is because we set width on 
+                blogEntryContainer, we don't actually want the clickable link
+                to be that wide-->
+                <div>
+                    <a style:color={blogEntryLinkColor} class="blogEntryLink" href="/blog/{entry.slug}">{entry.title}</a>
+                </div>
+                <div class="tagContainer"
+                    style:color={titleColor}
+                >
                     {#each entry.tags as tag, i}
-                        {#if i >= entry.tags.length - 1 }
-                            <a href="/blog/tags/{tag}">{tag}</a>  
-                        {:else}
-                            <a href="/blog/tags/{tag}">{tag}</a>,&nbsp;   
-                        {/if}
+                        <a style:color={tagLinkColor} class="tagLink" href="/blog/tags/{tag}">{tag}</a>  
+                        {#if i < entry.tags.length - 1 },&nbsp;{/if}
                     {/each}
                 </div>
             </div>    

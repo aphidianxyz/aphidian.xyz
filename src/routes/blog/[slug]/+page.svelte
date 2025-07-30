@@ -2,7 +2,7 @@
     import type { NavEntries } from "$lib/data-structures/NavEntries.ts";
 
     import TitleBar from '$lib/components/TitleBar.svelte';
-    import type { LayoutProps } from '../../$types';
+    import type { LayoutProps } from '../$types';
     let { data }: LayoutProps = $props();
 
     const ne = data.navElements;

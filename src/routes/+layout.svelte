@@ -16,6 +16,17 @@
     :global(body) {
         margin: 0;
     }
+
+    .mainContainer {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .childContainer {
+        flex: 1;
+    }
+
 </style>
 
 <svelte:head>
@@ -28,12 +39,12 @@
 </svelte:head>
 
 <div 
-    style:display="flex"
-    style:flex-direction="column"
-    style:height="100vh"
+    class="mainContainer"
     style:background-color={bgColor}
 >
-    {@render children()}
+    <div class="childContainer">
+        {@render children()}
+    </div>
     <Footer {footerLinkColor} />
 </div>
 
