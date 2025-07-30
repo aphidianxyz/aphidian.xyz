@@ -2,7 +2,7 @@
     font-family: "Alegreya";
     src: url('/fonts/Alegreya/static/Alegreya-Bold.ttf') format('truetype');
     font-weight: bold;
-    font-style: normal;
+    font-style: bold;
 }
 @font-face {
     font-family: "Alegreya";
@@ -10,7 +10,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
 @font-face {
     font-family: "AlegreyaSans";
     src: url('/fonts/Alegreya_Sans/AlegreyaSans-Regular.ttf') format('truetype');

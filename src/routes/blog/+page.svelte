@@ -3,7 +3,7 @@
 
     import TitleBar from '$lib/components/TitleBar.svelte';
     import { darkMode } from "../darkModeState.svelte";
-    import type { LayoutProps } from "../../routes/$types";
+    import type { LayoutProps } from "./$types"
     let { data }: LayoutProps = $props();
 
     const ne = data.navElements;
@@ -20,6 +20,9 @@
     const palette = data.palette;
     let dark = $derived(darkMode.state);
     let titleColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
+
+    // blog entries
+    const entries = data.entries;
 </script>
 
 <style>
@@ -35,21 +38,32 @@
         justify-content: space-between;
     }
 
-    .columnNames, hr {
+    .columnNames, hr, .blogEntryContainer {
         width: calc(50vw + 200px);
     }
 
-    a {
+    .pageTitle {
         text-decoration: none;
     }
 
+    .blogEntryContainer {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    h1, h2 {
+        font-family: Alegreya;
+    }
+
     h1 {
-        font-size: calc(1.5vw + 20px);
         margin: 1vh 0 1vh 0;
+        font-size: calc(1.5vw + 20px);
     }
 
     h2 {
         margin: 0 0 0 0;
+        font-size: calc(0.65vw + 15px);
+        font-weight: normal;
     }
 </style>
 
@@ -65,7 +79,7 @@
     <h1>
         <a 
             style:color={titleColor}
-            href="/blog"
+            class="pageTitle" href="/blog"
         >
             blog
         </a>
@@ -81,4 +95,20 @@
     <hr
         style:color={titleColor}
     >
+    <nav>
+        {#each entries as entry}
+            <div class="blogEntryContainer">
+                <a href="/blog/{entry.slug}">{entry.title}</a>
+                <div class="tagContainer">
+                    {#each entry.tags as tag, i}
+                        {#if i >= entry.tags.length - 1 }
+                            <a href="/blog/tags/{tag}">{tag}</a>  
+                        {:else}
+                            <a href="/blog/tags/{tag}">{tag}</a>,&nbsp;   
+                        {/if}
+                    {/each}
+                </div>
+            </div>    
+        {/each}
+    </nav>
 </div>

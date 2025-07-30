@@ -30,7 +30,7 @@
         align-items: center;
         align-self: center;
         justify-content: center;
-        height: calc(90vh + 25px);
+        height: calc(90vh + 20px);
     }
 
     section {
