@@ -10,6 +10,10 @@
     a:hover {
         text-decoration: underline;
     }
+
+    footer {
+        margin-bottom: 20px;
+    }
 </style>
 
 <footer

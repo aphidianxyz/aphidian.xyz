@@ -48,7 +48,6 @@
         text-align: end;
         justify-content: end;
         width: 30%;
-        flex-shrink: 0;
         gap: 0.25vw;
     }
 
