@@ -4,7 +4,7 @@ export const load: LayoutLoad = () => {
     return {
         entries: [
             // newer entries start here
-            { slug: 'welcome-to-my-blog', title: 'Welcome to my blog!', tags: ['meta']},
+            { slug: 'welcome-to-my-blog', title: 'Welcome to my blog!', tags: ['meta'], contentFile: '/blogEntries/welcome-to-my-blog.html'},
         ]
     }
 }

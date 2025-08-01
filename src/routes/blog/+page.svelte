@@ -115,10 +115,14 @@
     <div class="columnNames">
         <h2
             style:color={titleColor}
-        >article</h2>
+        >
+            article
+        </h2>
         <h2
             style:color={titleColor}
-        >tags</h2>
+        >
+            tags
+        </h2>
     </div>
     <hr
         style:color={titleColor}
