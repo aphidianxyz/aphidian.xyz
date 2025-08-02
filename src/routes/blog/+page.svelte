@@ -140,8 +140,9 @@
                     style:color={titleColor}
                 >
                     {#each entry.tags as tag, i}
-                        <a style:color={tagLinkColor} class="tagLink" href="/blog/tags/{tag}">{tag}</a>  
-                        {#if i < entry.tags.length - 1 },&nbsp;{/if}
+                        <a style:color={tagLinkColor} class="tagLink" href="/blog/tags/{tag}">
+                            {tag}
+                        </a>{#if entry.tags.length - 1 > i},&nbsp;{/if}
                     {/each}
                 </div>
             </div>    
