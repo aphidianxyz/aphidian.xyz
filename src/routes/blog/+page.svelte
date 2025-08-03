@@ -118,10 +118,12 @@
         >
             article
         </h2>
-        <h2
-            style:color={titleColor}
-        >
-            tags
+        <h2>
+            <a
+                style:color={titleColor}
+                style:text-decoration="none"
+                href="/blog/tags"
+            >tags</a>
         </h2>
     </div>
     <hr

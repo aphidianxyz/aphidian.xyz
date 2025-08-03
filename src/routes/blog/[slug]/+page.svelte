@@ -13,7 +13,6 @@
     let fontColor: string = $derived(titleFontColor);
     let linkColor: string = $derived(dark ? data.palette.secondary.dark : data.palette.secondary.light);
     let tagColor: string = $derived(dark ? data.palette.accents.dark : data.palette.accents.light);
-    let articleClass: string = $derived(dark ? "dark" : "light");
 
     // titlebar
     const ne = data.navElements;
@@ -98,7 +97,7 @@
     >
         {data.title}
     </h1>
-    {#if data.tags.length >= 1}
+    {#if data.tags.length > 0}
         <h3
             style:color={titleFontColor}
         >
@@ -125,7 +124,7 @@
             style:color={fontColor}
             style="--linkColor: {linkColor}"
         >
-            {@html content} <!-- define a styles page for each html file -->
+            {@html content} 
         </article>
     {:catch}
         <article>
