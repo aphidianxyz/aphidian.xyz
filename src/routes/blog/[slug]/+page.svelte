@@ -38,13 +38,12 @@
 </script>
 
 <style>
-
     h1 {
         margin-bottom: 0;
         font-size: calc(1vw + 30px);
     }
 
-    h3, .tagLink, article {
+    h3, .tagLink, article, nav {
         font-size: calc(0.6vw + 10px);
     }
 
@@ -83,6 +82,13 @@
 
     .tagLink:hover {
         text-decoration: underline;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: calc(50vw + 50px);
     }
 
 </style>

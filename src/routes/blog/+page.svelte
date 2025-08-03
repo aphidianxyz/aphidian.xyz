@@ -45,9 +45,10 @@
     }
 
     .tagContainer {
-        text-align: end;
-        justify-content: end;
-        width: 30%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        width: 40%;
         gap: 0.25vw;
     }
 
@@ -65,7 +66,7 @@
     }
 
     .blogEntryLink { 
-        width: 70%;
+        width: 60%;
     }
 
     .tagLink {
