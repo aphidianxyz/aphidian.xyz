@@ -28,6 +28,7 @@
 
     a {
         text-decoration: none;
+        font-weight: bold;
     }
 
     a:hover {
@@ -48,7 +49,6 @@
         width: calc(50vw + 50px);
         font-family: AlegreyaSans;
         font-size: calc(0.6vw + 10px);
-        font-weight: bold;
     }
 </style>
 

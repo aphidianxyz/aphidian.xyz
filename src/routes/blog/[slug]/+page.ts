@@ -8,12 +8,14 @@ export const load: PageLoad = async ({ params, parent }) => {
     if (!entry) {
         return {
             title: 'Article not found',
+            date: '',
             tags: [],
             contentFile: '/blogEntries/missing-article.html'
         }
     }
     return {
         title: entry.title,
+        date: entry.date,
         tags: entry.tags,
         contentFile: entry.contentFile 
     };

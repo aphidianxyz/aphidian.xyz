@@ -44,6 +44,7 @@
     }
 
     h3, .tagLink, article, nav {
+        margin-bottom: 0;
         font-size: calc(0.6vw + 10px);
     }
 
@@ -78,6 +79,7 @@
     .tagLink {
         font-family: AlegreyaSans;
         text-decoration: none;
+        font-weight: bold;
     }
 
     .tagLink:hover {
@@ -103,6 +105,11 @@
     >
         {data.title}
     </h1>
+    <h3
+        style:color={titleFontColor}
+    >
+        {data.date}
+    </h3>
     {#if data.tags.length > 0}
         <h3
             style:color={titleFontColor}
@@ -138,3 +145,5 @@
         </article>
     {/await}
 </div>
+
+<!-- need a page props -->
