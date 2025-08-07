@@ -141,7 +141,7 @@
         </article>
     {:catch}
         <article>
-            <p>Something happened; please refresh or <a href="/about">contact me</a></p>
+            <p>Failed to load article; please try refreshing or <a href="/about">contact me</a></p>
         </article>
     {/await}
 </div>
