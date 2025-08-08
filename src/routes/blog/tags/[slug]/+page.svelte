@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { LayoutProps } from '../$types';
     import type { PageProps } from './$types';
-    import type { blogEntry } from './+page';
+    import type { blogEntry } from '../../+layout';
     import { darkMode } from '../../../darkModeState.svelte';
     let { data }: LayoutProps & PageProps = $props();
 

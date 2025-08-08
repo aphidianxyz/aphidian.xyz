@@ -1,22 +1,25 @@
+import type { blogEntry } from "../proxy+layout";
 import type { PageLoad } from "./$types";
 
 export const load: PageLoad = async ({ params, parent }) => {
     const parentData = await parent();
 
-    const entry = parentData.entries.find((element) => element.slug === params.slug);
+    const entryResults: blogEntry | undefined = parentData.entries.find((element) => element.slug === params.slug);
 
-    if (!entry) {
+    if (entryResults) {
+        const entry: blogEntry = entryResults;
         return {
-            title: 'Article not found',
-            date: '',
-            tags: [],
-            contentFile: '/blogEntries/missing-article.html'
-        }
+            entry
+        };
     }
+    const entry: blogEntry = {
+        slug: 'error-missing-article',
+        date: '',
+        title: '',
+        tags: [],
+        contentFile: '/blogEntries/missing-article.html',
+    };
     return {
-        title: entry.title,
-        date: entry.date,
-        tags: entry.tags,
-        contentFile: entry.contentFile 
+        entry
     };
 };

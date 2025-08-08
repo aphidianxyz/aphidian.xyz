@@ -5,6 +5,7 @@
     import { darkMode } from "../../darkModeState.svelte";
     import type { LayoutProps } from '../$types';
     import type { PageProps } from './$types';
+    import type { blogEntry } from "../proxy+layout";
     let { data }: LayoutProps & PageProps = $props();
 
     // colors
@@ -27,10 +28,11 @@
     }
 
     // loads a static html file correlating the blog entry
+    const entry: blogEntry = data.entry;
     let content: string = $state("");
     let contentPromise = loadContent(); 
     async function loadContent(): Promise<void> {
-        const response: Response = await fetch(data.contentFile);
+        const response: Response = await fetch(entry.contentFile);
         const file = await response.text();
         content = file;
     }
@@ -103,14 +105,9 @@
     <h1
         style:color={titleFontColor}
     >
-        {data.title}
+        {entry.title}
     </h1>
-    <h3
-        style:color={titleFontColor}
-    >
-        {data.date}
-    </h3>
-    {#if data.tags.length > 0}
+    {#if entry.tags.length > 0}
         <h3
             style:color={titleFontColor}
         >
@@ -119,19 +116,25 @@
         <nav
             style:color={titleFontColor}
         >
-            {#each data.tags as tag, i}
+            {#each entry.tags as tag, i}
                 <a 
                     style:color={tagColor}
                     class="tagLink" href="/blog/tags/{tag}"
                 >
                     {tag}
-                </a>{#if data.tags.length - i > 1},&nbsp;{/if}
+                </a>{#if entry.tags.length - i > 1},&nbsp;{/if}
             {/each}
         </nav>
         <hr
             style:color={titleFontColor}
         >
     {/if}
+    <h3
+        style:font-family="AlegreyaSans"
+        style:color={fontColor}
+    >
+        {entry.date}
+    </h3>
     {#await contentPromise then}
         <article
             style:color={fontColor}
@@ -145,5 +148,3 @@
         </article>
     {/await}
 </div>
-
-<!-- need a page props -->

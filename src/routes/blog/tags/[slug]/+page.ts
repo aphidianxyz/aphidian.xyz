@@ -1,18 +1,11 @@
 import type { PageParentData } from "../$types";
 import type { PageLoad } from "../../[slug]/$types";
-
-// TODO: define this somewhere else in the project
-export type blogEntry = {
-    slug: string,
-    date: string,
-    title: string,
-    tags: string[],
-    contentFile: string
-}
+import type { blogEntry } from "../../+layout";
 
 export const load: PageLoad = async ({ params, parent }) => {
     const parentData: PageParentData = await parent();
     const entries = parentData.entries;
+    let tagName: string = params.slug; 
     let matches: blogEntry[] = new Array();
 
     entries.forEach((entry) => {
@@ -25,7 +18,7 @@ export const load: PageLoad = async ({ params, parent }) => {
     });
 
     return {
-        tagName: params.slug,
-        matches: matches
+        tagName,
+        matches
     };
 }
