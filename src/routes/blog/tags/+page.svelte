@@ -50,6 +50,10 @@
         font-family: AlegreyaSans;
         font-size: calc(0.6vw + 10px);
     }
+
+    hr {
+        width: 20%;
+    }
 </style>
 
 <div>
@@ -61,6 +65,9 @@
             tags
         </a>
     </h1>
+    <hr
+        style:color={titleColor}
+    >
     <nav
         style:color={titleColor}
     >

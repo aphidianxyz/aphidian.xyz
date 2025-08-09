@@ -9,7 +9,6 @@
     let dark: boolean = $derived(darkMode.state);
     const palette = data.palette;
     const primaryColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
-    const tagColor: string = $derived(dark ? palette.accents.dark : palette.accents.light);
     const entryColor: string = $derived(dark ? palette.secondary.dark : palette.secondary.light);
 
     // matches for tags 
@@ -51,7 +50,7 @@
 <main>
     <h1>
         <a
-            style:color={tagColor}
+            style:color={primaryColor}
             href="/blog/tags/{data.tagName}"
         >
             {data.tagName}

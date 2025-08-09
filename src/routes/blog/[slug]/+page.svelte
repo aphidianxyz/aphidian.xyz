@@ -10,21 +10,23 @@
 
     // colors
     let dark: boolean = $derived(darkMode.state);
-    let titleFontColor: string = $derived(dark ? data.palette.primary.dark : data.palette.primary.light);
+    let palette = data.palette;
+    let titleFontColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
     let fontColor: string = $derived(titleFontColor);
-    let linkColor: string = $derived(dark ? data.palette.secondary.dark : data.palette.secondary.light);
-    let tagColor: string = $derived(dark ? data.palette.accents.dark : data.palette.accents.light);
+    let linkColor: string = $derived(dark ? palette.secondary.dark : palette.secondary.light);
+    let tagColor: string = $derived(dark ? palette.accents.dark : palette.accents.light);
 
     // titlebar
     const ne = data.navElements;
     const home = ne.home;
+    const blog = ne.blog;
     const projects = ne.projects;
     const about = ne.about;
     const blogNavEntries: NavEntries = {
-        navEntryNames: [home.name, projects.name, about.name],
-        navDest: [home.dest, projects.dest, about.dest],
-        navEmoji: [home.emoji, projects.emoji, about.emoji],
-        navDesc: [home.desc, projects.desc, about.desc],
+        navEntryNames: [home.name, blog.name, projects.name, about.name],
+        navDest: [home.dest, blog.dest, projects.dest, about.dest],
+        navEmoji: [home.emoji, blog.emoji, projects.emoji, about.emoji],
+        navDesc: [home.desc, blog.desc, projects.desc, about.desc],
     }
 
     // loads a static html file correlating the blog entry

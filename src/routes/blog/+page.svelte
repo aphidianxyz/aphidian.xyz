@@ -69,7 +69,7 @@
         width: 60%;
     }
 
-    .tagLink {
+    .tagLink, h2 {
         font-weight: bold;
     }
 
@@ -92,7 +92,6 @@
     h2 {
         margin: 0 0 0 0;
         font-size: calc(0.65vw + 15px);
-        font-weight: normal;
     }
 </style>
 
