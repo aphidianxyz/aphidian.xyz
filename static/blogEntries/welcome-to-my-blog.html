@@ -1,4 +1,27 @@
 <p>Hello World!</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<a href="/blog/welcome-to-my-blog">links!</a>
-<img src="/aphid-icon-crop-light.svg">
+<p>Paragraph with <strong>strong</strong> text</p>
+<p>Paragraph with <em>emphasized</em> text</p>
+<p><a href="/blog/welcome-to-my-blog">links!</a></p>
+<div class="imgWithSub">
+    <img style="width:50%" src="/aphid-icon-crop-light.svg">
+    <sub>an <a href="https://en.wikipedia.org/wiki/Aphid">aphid</a></sub>
+</div>
+<p>Here is a fibonacci implementation in <code>Go</code>:</p>
+<pre>
+<code>
+func fib(num int) *big.Int {
+    switch num {
+    case 0: 
+        return big.NewInt(0)
+    case 1:
+        return big.NewInt(1)
+    default:
+        sum := big.NewInt(0)
+        sum.Add(sum, fibNoDyn(num - 1))
+        sum.Add(sum, fibNoDyn(num - 2))
+        return sum
+    }
+}
+</code>
+</pre>

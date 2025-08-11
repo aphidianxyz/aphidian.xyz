@@ -68,6 +68,13 @@
         width: calc(50vw + 50px);
     }
 
+    :global(article .imgWithSub) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.33vh;
+    }
+
     :global(article a) {
         color: var(--linkColor);
         text-decoration: none;
@@ -75,6 +82,15 @@
 
     :global(article a:hover) {
         text-decoration: underline;
+    }
+
+    :global(article code) {
+        font-size: calc(0.5vw + 10px);
+    }
+
+    :global(article pre) {
+        border-color: var(--codeBorderColor);
+        border: 2px solid;
     }
 
     div {
@@ -143,7 +159,7 @@
     {#await contentPromise then}
         <article
             style:color={fontColor}
-            style="--linkColor: {linkColor}"
+            style="--linkColor: {linkColor};--codeBorderColor: {titleFontColor}"
         >
             {@html content} 
         </article>
@@ -152,4 +168,7 @@
             <p>Failed to load article; please try refreshing or <a href="/about">contact me</a></p>
         </article>
     {/await}
+    <hr
+        style:color={titleFontColor}
+    >
 </div>
