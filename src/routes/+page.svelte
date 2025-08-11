@@ -1,23 +1,26 @@
 <script lang="ts">
+    import type { LayoutProps } from './$types';
+    import type { ColorPalette, NavEntryList } from './+layout';
+    import type { NavEntry } from './proxy+layout';
+
     import Logo from '$lib/components/Logo.svelte';
     import Title from '$lib/components/Title.svelte';
     import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
-    import type { LayoutProps } from './$types';
     import { darkMode } from './darkModeState.svelte';
     let { data }: LayoutProps = $props();
 
-    const ne = data.navElements;
-    const blog = ne.blog;
-    const projects = ne.projects;
-    const about = ne.about;
+    const ne: NavEntryList = data.navElements;
+    const blog: NavEntry = ne.blog;
+    const projects: NavEntry = ne.projects;
+    const about: NavEntry = ne.about;
     const nav_emojis: string[] = [blog.emoji, projects.emoji, about.emoji];
     const nav_entries: string[] = [blog.name, projects.name, about.name];
     const entry_descs: string[] = [blog.desc, projects.desc, about.desc];
     const entry_dests: string[] = [blog.dest, projects.dest, about.dest];
 
-    const palette = data.palette;
-    const icon = data.icon;
-    let dark = $derived(darkMode.state);
+    const palette: ColorPalette = data.palette;
+    const icon: ColorPalette = data.icon;
+    let dark: boolean = $derived(darkMode.state);
     let titleColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
     let logoFile: string = $derived(dark ? icon.full.dark : icon.full.light);
     let hyperLinkColor: string = $derived(dark ? palette.secondary.dark : palette.secondary.light);

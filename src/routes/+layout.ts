@@ -1,10 +1,10 @@
 import type { LayoutLoad } from './$types';
 
-interface ColorPalette {
+export interface ColorPalette {
     [name: string]: ColorScheme;
 }
 
-interface NavEntryList {
+export interface NavEntryList {
     [name: string]: NavEntry;
 }
 

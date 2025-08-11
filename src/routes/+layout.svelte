@@ -1,13 +1,14 @@
 <script lang="ts">
-    import '../app.css';
     import type { LayoutProps } from './$types';
-    let { data, children }: LayoutProps = $props();
+    import type { ColorPalette } from './+layout';
 
+    import '../app.css';
     import { darkMode } from './darkModeState.svelte';
     import Footer from '$lib/components/Footer.svelte';
+    let { data, children }: LayoutProps = $props();
 
-    let palette = data.palette;
-    let dark = $derived(darkMode.state);
+    let palette: ColorPalette = data.palette;
+    let dark: boolean = $derived(darkMode.state);
     let bgColor: string = $derived(dark ? palette.tertiary.dark : palette.tertiary.light);
     let footerLinkColor: string = $derived(dark ? palette.accents.dark : palette.accents.light)
 </script>

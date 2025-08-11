@@ -1,14 +1,16 @@
 <script lang="ts">
     import type { NavEntries } from "$lib/data-structures/NavEntries.ts";
+    import type { LayoutProps } from "../../routes/$types";
+    import type { NavEntryList } from "../+layout";
+    import type { NavEntry } from "../proxy+layout";
 
     import TitleBar from '$lib/components/TitleBar.svelte';
-    import type { LayoutProps } from "../../routes/$types";
     let { data }: LayoutProps = $props();
 
-    const ne = data.navElements;
-    const home = ne.home;
-    const blog = ne.blog;
-    const projects = ne.projects;
+    const ne: NavEntryList = data.navElements;
+    const home: NavEntry = ne.home;
+    const blog: NavEntry  = ne.blog;
+    const projects: NavEntry  = ne.projects;
     const aboutNavEntries: NavEntries = {
         navEntryNames: [home.name, blog.name, projects.name],
         navDest: [home.dest, blog.dest, projects.dest],

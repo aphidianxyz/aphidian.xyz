@@ -1,13 +1,15 @@
 <script lang="ts">
-    import { darkMode } from '../../darkModeState.svelte';
+    import type { ColorPalette } from '../../+layout';
     import type { LayoutProps } from './$types';
+
+    import { darkMode } from '../../darkModeState.svelte';
     let { data }: LayoutProps = $props();
 
     // colors
-    let dark = $derived(darkMode.state);
-    const palette = data.palette;
-    const titleColor = $derived(dark ? palette.primary.dark : palette.primary.light);
-    const tagColor = $derived(dark ? palette.accents.dark : palette.accents.light);
+    let dark: boolean = $derived(darkMode.state);
+    const palette: ColorPalette = data.palette;
+    const titleColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
+    const tagColor: string = $derived(dark ? palette.accents.dark : palette.accents.light);
 
     // tags
     let uniqueTags: string[] = new Array();

@@ -1,11 +1,14 @@
 <script lang="ts">
     import type { NavEntries } from "$lib/data-structures/NavEntries.ts";
-
-    import TitleBar from '$lib/components/TitleBar.svelte';
-    import { darkMode } from "../../darkModeState.svelte";
     import type { LayoutProps } from '../$types';
     import type { PageProps } from './$types';
     import type { blogEntry } from "../proxy+layout";
+    import type { NavEntryList } from "../../+layout";
+    import type { NavEntry } from "../../proxy+layout";
+
+    import TitleBar from '$lib/components/TitleBar.svelte';
+    import { darkMode } from "../../darkModeState.svelte";
+
     let { data }: LayoutProps & PageProps = $props();
 
     // colors
@@ -17,11 +20,11 @@
     let tagColor: string = $derived(dark ? palette.accents.dark : palette.accents.light);
 
     // titlebar
-    const ne = data.navElements;
-    const home = ne.home;
-    const blog = ne.blog;
-    const projects = ne.projects;
-    const about = ne.about;
+    const ne: NavEntryList = data.navElements;
+    const home: NavEntry = ne.home;
+    const blog: NavEntry = ne.blog;
+    const projects: NavEntry = ne.projects;
+    const about: NavEntry = ne.about;
     const blogNavEntries: NavEntries = {
         navEntryNames: [home.name, blog.name, projects.name, about.name],
         navDest: [home.dest, blog.dest, projects.dest, about.dest],
@@ -32,10 +35,10 @@
     // loads a static html file correlating the blog entry
     const entry: blogEntry = data.entry;
     let content: string = $state("");
-    let contentPromise = loadContent(); 
+    const contentPromise = loadContent(); 
     async function loadContent(): Promise<void> {
         const response: Response = await fetch(entry.contentFile);
-        const file = await response.text();
+        const file: string = await response.text();
         content = file;
     }
 

@@ -1,15 +1,19 @@
 <script lang="ts">
     import type { NavEntries } from "$lib/data-structures/NavEntries.ts";
+    import type { ColorPalette, NavEntryList } from "../+layout";
+    import type { LayoutProps } from "./$types"
+    import type { NavEntry } from "../proxy+layout";
+    import type { blogEntry } from "./proxy+layout";
 
     import TitleBar from '$lib/components/TitleBar.svelte';
     import { darkMode } from "../darkModeState.svelte";
-    import type { LayoutProps } from "./$types"
+
     let { data }: LayoutProps = $props();
 
-    const ne = data.navElements;
-    const home = ne.home;
-    const projects = ne.projects;
-    const about = ne.about;
+    const ne: NavEntryList = data.navElements;
+    const home: NavEntry = ne.home;
+    const projects: NavEntry = ne.projects;
+    const about: NavEntry = ne.about;
     const blogNavEntries: NavEntries = {
         navEntryNames: [home.name, projects.name, about.name],
         navDest: [home.dest, projects.dest, about.dest],
@@ -17,14 +21,14 @@
         navDesc: [home.desc, projects.desc, about.desc],
     }
 
-    const palette = data.palette;
-    let dark = $derived(darkMode.state);
+    const palette: ColorPalette = data.palette;
+    let dark: boolean = $derived(darkMode.state);
     let titleColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
     let blogEntryLinkColor: string = $derived(dark ? palette.secondary.dark : palette.secondary.light);
     let tagLinkColor: string = $derived(dark ? palette.accents.dark : palette.accents.light);
 
     // blog entries
-    const entries = data.entries;
+    const entries: blogEntry[] = data.entries;
 </script>
 
 <style>
