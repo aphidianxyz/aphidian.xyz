@@ -21,15 +21,14 @@
 
     // titlebar
     const ne: NavEntryList = data.navElements;
-    const home: NavEntry = ne.home;
     const blog: NavEntry = ne.blog;
     const projects: NavEntry = ne.projects;
     const about: NavEntry = ne.about;
     const blogNavEntries: NavEntries = {
-        navEntryNames: [home.name, blog.name, projects.name, about.name],
-        navDest: [home.dest, blog.dest, projects.dest, about.dest],
-        navEmoji: [home.emoji, blog.emoji, projects.emoji, about.emoji],
-        navDesc: [home.desc, blog.desc, projects.desc, about.desc],
+        navEntryNames: [blog.name, projects.name, about.name],
+        navDest: [blog.dest, projects.dest, about.dest],
+        navEmoji: [blog.emoji, projects.emoji, about.emoji],
+        navDesc: [blog.desc, projects.desc, about.desc],
     }
 
     // loads a static html file correlating the blog entry
@@ -47,12 +46,13 @@
 <style>
     h1 {
         margin-bottom: 0;
+        text-align: center;
         font-size: calc(1vw + 30px);
     }
 
     h3, .tagLink, article, nav {
         margin-bottom: 0;
-        font-size: calc(0.6vw + 10px);
+        font-size: calc(0.8vw + 10px);
     }
 
     h1, h3, hr {
@@ -60,12 +60,12 @@
     }
 
     hr {
-        width: calc(10% + 20px);
+        width: calc(10% + 50px);
     }
 
     article {
         font-family: AlegreyaSans;
-        width: calc(50vw + 50px);
+        width: calc(40vw + 190px);
     }
 
     :global(article .imgWithSub) {
@@ -85,7 +85,7 @@
     }
 
     :global(article code) {
-        font-size: calc(0.5vw + 10px);
+        font-size: calc(0.4vw + 10px);
     }
 
     :global(article pre) {

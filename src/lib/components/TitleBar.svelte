@@ -1,16 +1,24 @@
 <script lang="ts">
     import type { NavEntries } from "$lib/data-structures/NavEntries.ts";
+    import type { ColorPalette } from "../../routes/+layout";
+
     import { darkMode } from "../../routes/darkModeState.svelte";
     import '$lib/components/ThemeSwitcher.svelte';
+
+    // components
+    import Logo from "./Logo.svelte";
+    import Title from "./Title.svelte";
+    import ThemeSwitcher from "$lib/components/ThemeSwitcher.svelte";
+
     const { 
         data,
-        imgWidth = "calc(2.5vw + 20px)", 
+        imgWidth = "calc(3vw + 20px)", 
         imgHeight = "auto", 
         imgMargin = "0px 0.5vw 0px 0px", 
         borderWidth = "3px", 
-        titleMargin = "0.5vh 1vw 0px 0px", 
-        titleFontSize = "calc(2.5vw + 20px)", 
-        navFontSize = "calc(0.75vw + 10px)",
+        titleMargin = "0.5vh 1.25vw 0px 0px", 
+        titleFontSize = "calc(2vw + 20px)", 
+        navFontSize = "calc(0.75vw + 12.5px)",
         navEntries
     }:{
         data: any 
@@ -24,15 +32,10 @@
         navEntries: NavEntries
     }= $props();
 
-    // components
-    import Logo from "./Logo.svelte";
-    import Title from "./Title.svelte";
-    import ThemeSwitcher from "$lib/components/ThemeSwitcher.svelte";
-
     // colors
-    const palette = data.palette;
-    const icon = data.icon;
-    let dark = $derived(darkMode.state);
+    const palette: ColorPalette = data.palette;
+    const icon: ColorPalette = data.icon;
+    let dark: boolean = $derived(darkMode.state);
     let titleColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
     let hyperlinkColor: string = $derived(dark ? palette.secondary.dark : palette.secondary.light);
 
@@ -40,10 +43,10 @@
     let logoFile: string = $derived(dark ? icon.cropped.dark : icon.cropped.light);
 
     // nav
-    const navEntryNames = navEntries.navEntryNames;
-    const navEntryDests = navEntries.navDest;
-    const navEntryEmojis = navEntries.navEmoji;
-    const navEntryDescs = navEntries.navDesc;
+    const navEntryNames: string[] = navEntries.navEntryNames;
+    const navEntryDests: string[] = navEntries.navDest;
+    const navEntryEmojis: string[] = navEntries.navEmoji;
+    const navEntryDescs: string[] = navEntries.navDesc;
 
 </script>
 
@@ -62,9 +65,9 @@
     nav {
         display: flex;
         align-self: self-end;
-        padding-bottom: 1.25vw;
+        padding-bottom: 1.15vw;
         font-family: AlegreyaSans;
-        gap: 1vw;
+        gap: 2vw;
     }
 
     a {
@@ -99,12 +102,13 @@
                     style:font-size={navFontSize}
                     href="{navEntryDests[i]}" title={navEntryDescs[i]}
                 >
-                    {navEntryEmojis[i]} {navEntryName}
+                    {navEntryEmojis[i]}
+                    {navEntryName}
                 </a>
             {/each}
         </nav>
     </div>
     <div class="themeSwitcher">
-        <ThemeSwitcher margin="0.5vh 0vw 0 0"/>
+        <ThemeSwitcher margin="0.5vh 0.5vw 0 0"/>
     </div>
 </div>

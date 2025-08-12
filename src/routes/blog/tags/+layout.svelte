@@ -15,15 +15,14 @@
 
     // titlebar
     const ne: NavEntryList = data.navElements;
-    const home: NavEntry = ne.home;
     const blog: NavEntry = ne.blog;
     const projects: NavEntry = ne.projects;
     const about: NavEntry = ne.about;
     const tagNavEntries: NavEntries = {
-        navEntryNames: [home.name, blog.name, projects.name, about.name],
-        navDest: [home.dest, blog.dest, projects.dest, about.dest],
-        navEmoji: [home.emoji, blog.emoji, projects.emoji, about.emoji],
-        navDesc: [home.desc, blog.desc, projects.desc, about.desc],
+        navEntryNames: [blog.name, projects.name, about.name],
+        navDest: [blog.dest, projects.dest, about.dest],
+        navEmoji: [blog.emoji, projects.emoji, about.emoji],
+        navDesc: [blog.desc, projects.desc, about.desc],
     }
 </script>
 

@@ -8,14 +8,13 @@
     let { data }: LayoutProps = $props();
 
     const ne: NavEntryList = data.navElements;
-    const home: NavEntry = ne.home;
     const blog: NavEntry = ne.blog;
     const about: NavEntry = ne.about;
     const projectsNavEntries: NavEntries = {
-        navEntryNames: [home.name, blog.name, about.name],
-        navDest: [home.dest, blog.dest, about.dest],
-        navEmoji: [home.emoji, blog.emoji, about.emoji],
-        navDesc: [home.desc, blog.desc, about.desc],
+        navEntryNames: [blog.name, about.name],
+        navDest: [blog.dest, about.dest],
+        navEmoji: [blog.emoji, about.emoji],
+        navDesc: [blog.desc, about.desc],
     }
 </script>
 

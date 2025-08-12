@@ -11,14 +11,13 @@
     let { data }: LayoutProps = $props();
 
     const ne: NavEntryList = data.navElements;
-    const home: NavEntry = ne.home;
     const projects: NavEntry = ne.projects;
     const about: NavEntry = ne.about;
     const blogNavEntries: NavEntries = {
-        navEntryNames: [home.name, projects.name, about.name],
-        navDest: [home.dest, projects.dest, about.dest],
-        navEmoji: [home.emoji, projects.emoji, about.emoji],
-        navDesc: [home.desc, projects.desc, about.desc],
+        navEntryNames: [projects.name, about.name],
+        navDest: [projects.dest, about.dest],
+        navEmoji: [projects.emoji, about.emoji],
+        navDesc: [projects.desc, about.desc],
     }
 
     const palette: ColorPalette = data.palette;
@@ -45,7 +44,7 @@
     }
 
     .columnNames, hr, .blogEntryContainer {
-        width: calc(50vw + 200px);
+        width: calc(40vw + 200px);
     }
 
     .tagContainer {
