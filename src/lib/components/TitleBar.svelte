@@ -16,7 +16,7 @@
         imgHeight = "auto", 
         imgMargin = "0px 0.5vw 0px 0px", 
         borderWidth = "3px", 
-        titleMargin = "0.5vh 1.25vw 0px 0px", 
+        titleMargin = "0 1.25vw 0px 0px", 
         titleFontSize = "calc(2vw + 20px)", 
         navFontSize = "calc(0.75vw + 12.5px)",
         navEntries
@@ -64,8 +64,7 @@
 
     nav {
         display: flex;
-        align-self: self-end;
-        padding-bottom: 1.15vw;
+        align-self: center;
         font-family: AlegreyaSans;
         gap: 2vw;
     }
