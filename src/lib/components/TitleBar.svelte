@@ -54,6 +54,7 @@
     .mainContainer {
         display: flex;
         justify-content: space-between;
+        margin-top: 1vh;
     }
 
     .titleAndNav {
@@ -66,6 +67,7 @@
         display: flex;
         align-self: center;
         font-family: AlegreyaSans;
+        margin-top: 1vh;
         gap: 2vw;
     }
 
@@ -108,6 +110,6 @@
         </nav>
     </div>
     <div class="themeSwitcher">
-        <ThemeSwitcher margin="0.5vh 0.5vw 0 0"/>
+        <ThemeSwitcher margin="-0.5vh 0.5vw 0 0"/>
     </div>
 </div>

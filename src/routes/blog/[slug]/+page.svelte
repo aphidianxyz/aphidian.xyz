@@ -90,7 +90,7 @@
 
     :global(article pre) {
         border-color: var(--codeBorderColor);
-        border: 2px solid;
+        border: 1px solid;
     }
 
     :global(article h1, h2, h3, h4, h5, h6) {
