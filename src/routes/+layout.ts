@@ -89,13 +89,17 @@ export const load: LayoutLoad = () => {
             desc: "about aphids",
         },
     };
+    const BLOG_ENTRY_ARTICLE_FONT = "calc(0.8vw + 12px)";
     const elementSizes: ElementSizes = {
-        pageH1Font: "calc(1vw + 30px)",
+        H1Font: "calc(1vw + 30px)",
+        H1Divider: "calc(25% + 10px)",
         blogEntryHR: "calc(10% + 50px)",
-        blogEntryArticleFont: "calc(0.8vw + 12px)",
+        blogEntryArticleFont: BLOG_ENTRY_ARTICLE_FONT,
         blogEntryArticleEle: "calc(35vw + 205px)",
         blogEntryTagsNav: "calc(50vw + 50px)",
         blogEntryCode: "calc(0.5vw + 10px)",
+        tagsHomeNavEle: "calc(50vw + 50px)",
+        tagsFont: BLOG_ENTRY_ARTICLE_FONT,
     };
 
     return {

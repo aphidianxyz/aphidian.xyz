@@ -4,7 +4,7 @@
     import type { PageProps } from './$types';
     import type { blogEntry } from "../proxy+layout";
     import type { ColorHex, NavEntryList } from "../../+layout";
-    import type { NavEntry } from "../../proxy+layout";
+    import type { ElementSizes, NavEntry } from "../../proxy+layout";
 
     import TitleBar from '$lib/components/TitleBar.svelte';
     import { darkMode } from "../../darkModeState.svelte";
@@ -12,7 +12,7 @@
     let { data }: LayoutProps & PageProps = $props();
 
     // element sizes
-    const sizes = data.elementSizes;
+    const sizes: ElementSizes = data.elementSizes;
 
     // colors
     let dark: boolean = $derived(darkMode.state);
@@ -118,7 +118,7 @@
 />
 <main>
     <h1
-        style:font-size={sizes.pageH1Font}
+        style:font-size={sizes.H1Font}
         style:color={titleFontColor}
     >
         {entry.title}
@@ -132,7 +132,7 @@
         </h3>
         <nav
             style:width={sizes.blogEntryTagsNav}
-            style:font-size={sizes.blogEntryArticleFont}
+            style:font-size={sizes.tagsFont}
             style:color={titleFontColor}
         >
             {#each entry.tags as tag, i}

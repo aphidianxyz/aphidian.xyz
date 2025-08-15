@@ -3,7 +3,11 @@
     import type { LayoutProps } from './$types';
 
     import { darkMode } from '../../darkModeState.svelte';
+    import type { ElementSizes } from '../../proxy+layout';
     let { data }: LayoutProps = $props();
+
+    // element sizes
+    const sizes: ElementSizes = data.elementSizes;
 
     // colors
     let dark: boolean = $derived(darkMode.state);
@@ -23,9 +27,9 @@
 </script>
 
 <style>
-    h1 {
+    main, nav {
+        display: flex;
         font-family: Alegreya;
-        font-size: calc(1vw + 30px);
     }
 
     a {
@@ -37,30 +41,27 @@
         text-decoration: underline;
     }
 
-    div {
-        display: flex;
+    main {
         flex-direction: column;
         align-items: center;
         align-content: center;
     }
 
     nav { 
-        display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        width: calc(50vw + 50px);
         font-family: AlegreyaSans;
-        font-size: calc(0.6vw + 10px);
     }
 
     hr {
         margin-top: 0;
-        width: 20%;
     }
 </style>
 
-<div>
-    <h1>
+<main>
+    <h1
+        style:font-size={sizes.H1Font}
+    >
         <a 
             style:color={titleColor}
             href="/blog/tags"
@@ -69,9 +70,12 @@
         </a>
     </h1>
     <hr
+        style:width={sizes.H1Divider}
         style:color={titleColor}
     >
     <nav
+        style:width={sizes.tagsHomeNavEle}
+        style:font-size={sizes.tagsFont}
         style:color={titleColor}
     >
         {#each uniqueTags as tag, i}
@@ -83,4 +87,4 @@
             </a>{#if i < uniqueTags.length - 1},&nbsp;{/if}
         {/each}
     </nav>
-</div>
+</main>

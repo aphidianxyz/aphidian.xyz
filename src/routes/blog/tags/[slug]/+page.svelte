@@ -3,10 +3,14 @@
     import type { PageProps } from './$types';
     import type { blogEntry } from '../../+layout';
     import type { ColorPalette, ColorHex } from '../../../+layout';
+    import type { ElementSizes } from '../../../proxy+layout';
 
     import { darkMode } from '../../../darkModeState.svelte';
 
     let { data }: LayoutProps & PageProps = $props();
+
+    // element sizes
+    const sizes: ElementSizes = data.elementSizes;
 
     // color
     let dark: boolean = $derived(darkMode.state);
@@ -19,27 +23,26 @@
 </script>
 
 <style>
-    main {
+    main, nav {
         display: flex;
         flex-direction: column;
+    }
+
+    main {
         align-items: center;
     }
 
     h1 {
         font-family: Alegreya;
-        font-size: calc(1vw + 30px);
+        font-size: var(--pageTitleFont);
     }
 
     nav {
-        display: flex;
-        flex-direction: column;
         font-family: AlegreyaSans;
-        font-size: calc(0.6vw + 10px);
     }
 
     hr {
         margin-top: 0;
-        width: 20%;
     }
 
     a {
@@ -52,7 +55,9 @@
 </style>
 
 <main>
-    <h1>
+    <h1
+        style:font-size={sizes.H1Font}
+    >
         <a
             style:color={primaryColor}
             href="/blog/tags/{data.tagName}"
@@ -61,9 +66,12 @@
         </a>
     </h1>
     <hr
+        style:width={sizes.H1Divider}
         style:color={primaryColor}
     >
-    <nav>
+    <nav
+        style:font-size={sizes.blogEntryArticleFont}
+    >
         {#each matches as match}
             <a 
                 style:color={entryColor}
