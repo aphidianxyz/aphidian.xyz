@@ -2,7 +2,7 @@
     import type { LayoutProps } from '../$types';
     import type { PageProps } from './$types';
     import type { blogEntry } from '../../+layout';
-    import type { ColorPalette } from '../../../+layout';
+    import type { ColorPalette, ColorHex } from '../../../+layout';
 
     import { darkMode } from '../../../darkModeState.svelte';
 
@@ -11,8 +11,8 @@
     // color
     let dark: boolean = $derived(darkMode.state);
     const palette: ColorPalette = data.palette;
-    const primaryColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
-    const entryColor: string = $derived(dark ? palette.secondary.dark : palette.secondary.light);
+    const primaryColor: ColorHex = $derived(dark ? palette.primary.dark : palette.primary.light);
+    const entryColor: ColorHex = $derived(dark ? palette.secondary.dark : palette.secondary.light);
 
     // matches for tags 
     const matches: blogEntry[] = data.matches;
@@ -38,6 +38,7 @@
     }
 
     hr {
+        margin-top: 0;
         width: 20%;
     }
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { ColorPalette } from '../../+layout';
+    import type { ColorPalette, ColorHex } from '../../+layout';
     import type { LayoutProps } from './$types';
 
     import { darkMode } from '../../darkModeState.svelte';
@@ -8,8 +8,8 @@
     // colors
     let dark: boolean = $derived(darkMode.state);
     const palette: ColorPalette = data.palette;
-    const titleColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
-    const tagColor: string = $derived(dark ? palette.accents.dark : palette.accents.light);
+    const titleColor: ColorHex = $derived(dark ? palette.primary.dark : palette.primary.light);
+    const tagColor: ColorHex = $derived(dark ? palette.accents.dark : palette.accents.light);
 
     // tags
     let uniqueTags: string[] = new Array();
@@ -54,6 +54,7 @@
     }
 
     hr {
+        margin-top: 0;
         width: 20%;
     }
 </style>

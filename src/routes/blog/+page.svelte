@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { NavEntries } from "$lib/data-structures/NavEntries.ts";
-    import type { ColorPalette, NavEntryList } from "../+layout";
+    import type { ColorPalette, ColorHex, NavEntryList } from "../+layout";
     import type { LayoutProps } from "./$types"
     import type { NavEntry } from "../proxy+layout";
     import type { blogEntry } from "./proxy+layout";
@@ -11,20 +11,21 @@
     let { data }: LayoutProps = $props();
 
     const ne: NavEntryList = data.navElements;
+    const tags: NavEntry = ne.tags;
     const projects: NavEntry = ne.projects;
     const about: NavEntry = ne.about;
     const blogNavEntries: NavEntries = {
-        navEntryNames: [projects.name, about.name],
-        navDest: [projects.dest, about.dest],
-        navEmoji: [projects.emoji, about.emoji],
-        navDesc: [projects.desc, about.desc],
+        navEntryNames: [tags.name, projects.name, about.name],
+        navDest: [tags.dest, projects.dest, about.dest],
+        navEmoji: [tags.emoji, projects.emoji, about.emoji],
+        navDesc: [tags.desc, projects.desc, about.desc],
     }
 
     const palette: ColorPalette = data.palette;
     let dark: boolean = $derived(darkMode.state);
-    let titleColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
-    let blogEntryLinkColor: string = $derived(dark ? palette.secondary.dark : palette.secondary.light);
-    let tagLinkColor: string = $derived(dark ? palette.accents.dark : palette.accents.light);
+    let titleColor: ColorHex = $derived(dark ? palette.primary.dark : palette.primary.light);
+    let blogEntryLinkColor: ColorHex = $derived(dark ? palette.secondary.dark : palette.secondary.light);
+    let tagLinkColor: ColorHex = $derived(dark ? palette.accents.dark : palette.accents.light);
 
     // blog entries
     const entries: blogEntry[] = data.entries;
@@ -81,6 +82,10 @@
         justify-content: space-between;
         gap: 10vw;
         margin-bottom: 15px;
+    }
+
+    hr {
+        margin-top: 0;
     }
 
     h1, h2 {

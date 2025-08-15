@@ -8,11 +8,11 @@ export interface NavEntryList {
     [name: string]: NavEntry;
 }
 
-export type colorHex = string;
+export type ColorHex = string;
 
 export type ColorScheme = {
-    light: colorHex;
-    dark: colorHex;
+    light: ColorHex;
+    dark: ColorHex;
 }
 
 export type NavEntry = {
@@ -21,6 +21,8 @@ export type NavEntry = {
     emoji: string,
     desc: string
 }
+
+export type size = string; 
 
 export const load: LayoutLoad = () => {
     const palette: ColorPalette = {
@@ -63,6 +65,12 @@ export const load: LayoutLoad = () => {
             dest: "/blog",
             emoji: "📓",
             desc: "aphids' writings",
+        },
+        tags: {
+            name: "tags",
+            dest: "/blog/tags",
+            emoji: "🗂️",
+            desc: "see all blog entry tags"
         },
         projects: {
             name: "projects",

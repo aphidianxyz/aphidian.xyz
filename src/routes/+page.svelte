@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { LayoutProps } from './$types';
-    import type { ColorPalette, NavEntryList } from './+layout';
+    import type { ColorPalette, ColorHex, NavEntryList } from './+layout';
     import type { NavEntry } from './proxy+layout';
 
     import Logo from '$lib/components/Logo.svelte';
@@ -21,9 +21,9 @@
     const palette: ColorPalette = data.palette;
     const icon: ColorPalette = data.icon;
     let dark: boolean = $derived(darkMode.state);
-    let titleColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
-    let logoFile: string = $derived(dark ? icon.full.dark : icon.full.light);
-    let hyperLinkColor: string = $derived(dark ? palette.secondary.dark : palette.secondary.light);
+    let titleColor: ColorHex = $derived(dark ? palette.primary.dark : palette.primary.light);
+    let logoFile: ColorHex = $derived(dark ? icon.full.dark : icon.full.light);
+    let hyperLinkColor: ColorHex = $derived(dark ? palette.secondary.dark : palette.secondary.light);
 </script>
 
 <style>

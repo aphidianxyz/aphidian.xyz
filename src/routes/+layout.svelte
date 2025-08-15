@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { LayoutProps } from './$types';
-    import type { ColorPalette } from './+layout';
+    import type { ColorPalette, ColorHex } from './+layout';
 
     import '../app.css';
     import { darkMode } from './darkModeState.svelte';
@@ -9,8 +9,8 @@
 
     let palette: ColorPalette = data.palette;
     let dark: boolean = $derived(darkMode.state);
-    let bgColor: string = $derived(dark ? palette.tertiary.dark : palette.tertiary.light);
-    let footerLinkColor: string = $derived(dark ? palette.accents.dark : palette.accents.light)
+    let bgColor: ColorHex = $derived(dark ? palette.tertiary.dark : palette.tertiary.light);
+    let footerLinkColor: ColorHex = $derived(dark ? palette.accents.dark : palette.accents.light)
 </script>
 
 <style>

@@ -3,7 +3,7 @@
     import type { LayoutProps } from '../$types';
     import type { PageProps } from './$types';
     import type { blogEntry } from "../proxy+layout";
-    import type { NavEntryList } from "../../+layout";
+    import type { ColorHex, NavEntryList } from "../../+layout";
     import type { NavEntry } from "../../proxy+layout";
 
     import TitleBar from '$lib/components/TitleBar.svelte';
@@ -14,10 +14,10 @@
     // colors
     let dark: boolean = $derived(darkMode.state);
     let palette = data.palette;
-    let titleFontColor: string = $derived(dark ? palette.primary.dark : palette.primary.light);
-    let fontColor: string = $derived(titleFontColor);
-    let linkColor: string = $derived(dark ? palette.secondary.dark : palette.secondary.light);
-    let tagColor: string = $derived(dark ? palette.accents.dark : palette.accents.light);
+    let titleFontColor: ColorHex = $derived(dark ? palette.primary.dark : palette.primary.light);
+    let fontColor: ColorHex = $derived(titleFontColor);
+    let linkColor: ColorHex = $derived(dark ? palette.secondary.dark : palette.secondary.light);
+    let tagColor: ColorHex = $derived(dark ? palette.accents.dark : palette.accents.light);
 
     // titlebar
     const ne: NavEntryList = data.navElements;
