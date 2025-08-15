@@ -8,7 +8,13 @@ export interface NavEntryList {
     [name: string]: NavEntry;
 }
 
+export interface ElementSizes {
+    [name: string]: ElementSize
+}
+
 export type ColorHex = string;
+
+export type ElementSize = string; 
 
 export type ColorScheme = {
     light: ColorHex;
@@ -21,8 +27,6 @@ export type NavEntry = {
     emoji: string,
     desc: string
 }
-
-export type size = string; 
 
 export const load: LayoutLoad = () => {
     const palette: ColorPalette = {
@@ -70,7 +74,7 @@ export const load: LayoutLoad = () => {
             name: "tags",
             dest: "/blog/tags",
             emoji: "🗂️",
-            desc: "see all blog entry tags"
+            desc: "all blog entry tags"
         },
         projects: {
             name: "projects",
@@ -84,11 +88,20 @@ export const load: LayoutLoad = () => {
             emoji: "🪲",
             desc: "about aphids",
         },
-    }
+    };
+    const elementSizes: ElementSizes = {
+        pageH1Font: "calc(1vw + 30px)",
+        blogEntryHR: "calc(10% + 50px)",
+        blogEntryArticleFont: "calc(0.8vw + 12px)",
+        blogEntryArticleEle: "calc(35vw + 205px)",
+        blogEntryTagsNav: "calc(50vw + 50px)",
+        blogEntryCode: "calc(0.5vw + 10px)",
+    };
 
     return {
         palette,
         icon,
         navElements,
+        elementSizes,
     }
 }

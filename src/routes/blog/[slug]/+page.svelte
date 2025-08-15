@@ -11,9 +11,12 @@
 
     let { data }: LayoutProps & PageProps = $props();
 
+    // element sizes
+    const sizes = data.elementSizes;
+
     // colors
     let dark: boolean = $derived(darkMode.state);
-    let palette = data.palette;
+    const palette = data.palette;
     let titleFontColor: ColorHex = $derived(dark ? palette.primary.dark : palette.primary.light);
     let fontColor: ColorHex = $derived(titleFontColor);
     let linkColor: ColorHex = $derived(dark ? palette.secondary.dark : palette.secondary.light);
@@ -44,35 +47,30 @@
 </script>
 
 <style>
-    h1 {
-        margin-bottom: 0;
+    :global(article .imgWithSub), main, nav {
+        display: flex;
+    }
+
+    h1, :global(article h1, h2, h3, h4, h5, h6) {
         text-align: center;
-        font-size: calc(1vw + 30px);
     }
 
-    h3, .tagLink, article, nav {
+    h1, h3, .tagLink, article, nav {
         margin-bottom: 0;
-        font-size: calc(0.8vw + 10px);
     }
 
-    h1, h3, hr {
+    h1, h3, hr, .tagLink {
         font-family: Alegreya;
-    }
-
-    hr {
-        width: calc(10% + 50px);
     }
 
     article {
         font-family: AlegreyaSans;
-        width: calc(40vw + 190px);
     }
 
     :global(article .imgWithSub) {
-        display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 0.33vh;
+        gap: 0.5vh;
     }
 
     :global(article a) {
@@ -85,7 +83,7 @@
     }
 
     :global(article code) {
-        font-size: calc(0.4vw + 10px);
+        font-size: var(--codeFontSize)
     }
 
     :global(article pre) {
@@ -93,18 +91,12 @@
         border: 1px solid;
     }
 
-    :global(article h1, h2, h3, h4, h5, h6) {
-        text-align: center;
-    }
-
-    div {
-        display: flex;
+    main {
         flex-direction: column;
         align-items: center;
     }
 
     .tagLink {
-        font-family: AlegreyaSans;
         text-decoration: none;
         font-weight: bold;
     }
@@ -114,10 +106,8 @@
     }
 
     nav {
-        display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        width: calc(50vw + 50px);
     }
 
 </style>
@@ -126,19 +116,23 @@
     {data}
     navEntries={blogNavEntries}
 />
-<div>
+<main>
     <h1
+        style:font-size={sizes.pageH1Font}
         style:color={titleFontColor}
     >
         {entry.title}
     </h1>
     {#if entry.tags.length > 0}
         <h3
+            style:font-size={sizes.blogEntryArticleFont}
             style:color={titleFontColor}
         >
             tag(s)
         </h3>
         <nav
+            style:width={sizes.blogEntryTagsNav}
+            style:font-size={sizes.blogEntryArticleFont}
             style:color={titleFontColor}
         >
             {#each entry.tags as tag, i}
@@ -151,10 +145,12 @@
             {/each}
         </nav>
         <hr
+            style:width={sizes.blogEntryHR}
             style:color={titleFontColor}
         >
     {/if}
     <h3
+        style:font-size={sizes.blogEntryArticleFont}
         style:font-family="AlegreyaSans"
         style:color={fontColor}
     >
@@ -162,8 +158,10 @@
     </h3>
     {#await contentPromise then}
         <article
+            style:width={sizes.blogEntryArticleEle}
+            style:font-size={sizes.blogEntryArticleFont}
             style:color={fontColor}
-            style="--linkColor: {linkColor};--codeBorderColor: {titleFontColor}"
+            style="--linkColor: {linkColor};--codeBorderColor: {titleFontColor};--codeFontSize: {sizes.blogEntryCode}"
         >
             {@html content} 
         </article>
@@ -173,6 +171,7 @@
         </article>
     {/await}
     <hr
+        style:width={sizes.blogEntryHR}
         style:color={titleFontColor}
     >
-</div>
+</main>
