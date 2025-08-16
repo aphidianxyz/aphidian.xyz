@@ -2,7 +2,7 @@
     import type { NavEntries } from "$lib/data-structures/NavEntries.ts";
     import type { ColorPalette, ColorHex, NavEntryList } from "../+layout";
     import type { LayoutProps } from "./$types"
-    import type { NavEntry } from "../proxy+layout";
+    import type { ElementSizes, NavEntry } from "../proxy+layout";
     import type { blogEntry } from "./proxy+layout";
 
     import TitleBar from '$lib/components/TitleBar.svelte';
@@ -10,6 +10,10 @@
 
     let { data }: LayoutProps = $props();
 
+    // element sizes
+    const sizes: ElementSizes = data.elementSizes;
+
+    // nav entries
     const ne: NavEntryList = data.navElements;
     const tags: NavEntry = ne.tags;
     const projects: NavEntry = ne.projects;
@@ -21,6 +25,7 @@
         navDesc: [tags.desc, projects.desc, about.desc],
     }
 
+    // colors
     const palette: ColorPalette = data.palette;
     let dark: boolean = $derived(darkMode.state);
     let titleColor: ColorHex = $derived(dark ? palette.primary.dark : palette.primary.light);
@@ -32,27 +37,24 @@
 </script>
 
 <style>
-    .mainContainer {
+    main, .columnNames, .tagContainer, .blogEntryContainer {
         display: flex;
+    }
+
+    main {
         flex-direction: column;
         align-items: center;
+        font-family: Alegreya;
     }
 
     .columnNames {
-        display: flex;
         align-items: center;
         justify-content: space-between;
     }
 
-    .columnNames, hr, .blogEntryContainer {
-        width: calc(40vw + 200px);
-    }
-
     .tagContainer {
-        display: flex;
         flex-wrap: wrap;
         justify-content: flex-end;
-        width: 40%;
         gap: 0.25vw;
     }
 
@@ -66,11 +68,6 @@
 
     .blogEntryLink, .tagContainer {
         font-family: AlegreyaSans;
-        font-size: calc(0.6vw + 15px);
-    }
-
-    .blogEntryLink { 
-        width: 60%;
     }
 
     .tagLink, h2 {
@@ -78,28 +75,20 @@
     }
 
     .blogEntryContainer {
-        display: flex;
         justify-content: space-between;
-        gap: 10vw;
-        margin-bottom: 15px;
+        margin-bottom: 2.5vh;
     }
 
     hr {
         margin-top: 0;
     }
 
-    h1, h2 {
-        font-family: Alegreya;
-    }
-
     h1 {
         margin: 1vh 0 1vh 0;
-        font-size: calc(1.5vw + 20px);
     }
 
     h2 {
         margin: 0 0 0 0;
-        font-size: calc(0.65vw + 15px);
     }
 </style>
 
@@ -111,8 +100,10 @@
     {data}
     navEntries={blogNavEntries}
 />
-<div class="mainContainer">
-    <h1>
+<main>
+    <h1
+        style:font-size={sizes.H1Font}
+    >
         <a 
             style:color={titleColor}
             class="pageTitle" href="/blog"
@@ -120,14 +111,19 @@
             blog
         </a>
     </h1>
-    <div class="columnNames">
+    <div 
+        style:width={sizes.blogHomeWidth}
+        class="columnNames"
+    >
         <h2
+            style:font-size={sizes.blogHomeColumnFont}
             style:color={titleColor}
         >
             article
         </h2>
         <h2>
             <a
+                style:font-size={sizes.blogHomeColumnFont}
                 style:color={titleColor}
                 style:text-decoration="none"
                 href="/blog/tags"
@@ -135,27 +131,49 @@
         </h2>
     </div>
     <hr
+        style:width={sizes.blogHomeWidth}
         style:color={titleColor}
     >
     <nav>
         {#each entries as entry}
-            <div class="blogEntryContainer">
-                <!-- HACK: The extra encapsulation is because we set width on 
-                blogEntryContainer, we don't actually want the clickable link
-                to be that wide-->
-                <div>
-                    <a style:color={blogEntryLinkColor} class="blogEntryLink" href="/blog/{entry.slug}">{entry.title}</a>
+            <div 
+                style:width={sizes.blogHomeWidth}
+                class="blogEntryContainer"
+            >
+                <!-- Extra div encapsulation is for making the actual
+                clickable area of the link only the text itself-->
+                <div class="blogEntry">
+                    <a 
+                        style:font-size={sizes.blogHomeEntryFont}
+                        style:color={blogEntryLinkColor}
+                        class="blogEntryLink" 
+                        href="/blog/{entry.slug}"
+                    >
+                        {entry.title}
+                    </a>
                 </div>
-                <div class="tagContainer"
+                <div 
+                    class="tagContainer"
                     style:color={titleColor}
                 >
                     {#each entry.tags as tag, i}
-                        <a style:color={tagLinkColor} class="tagLink" href="/blog/tags/{tag}">
-                            {tag}
-                        </a>{#if entry.tags.length - 1 > i},&nbsp;{/if}
+                        <!-- Extra encapsulation so that the comma stays
+                        with the tag on wrap -->
+                        <div 
+                            style:font-size={sizes.blogHomeTagFont}
+                            class="tag"
+                        >
+                            <a 
+                                style:color={tagLinkColor}
+                                class="tagLink"
+                                href="/blog/tags/{tag}"
+                            >
+                                {tag}
+                            </a>{#if entry.tags.length - 1 > i},&nbsp;{/if}
+                        </div>
                     {/each}
                 </div>
             </div>    
         {/each}
     </nav>
-</div>
+</main>

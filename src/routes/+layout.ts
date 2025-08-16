@@ -90,9 +90,14 @@ export const load: LayoutLoad = () => {
         },
     };
     const BLOG_ENTRY_ARTICLE_FONT = "calc(0.8vw + 12px)";
+    const BLOG_HOME_ENTRY_FONT = "calc(0.5vw + 18px)";
     const elementSizes: ElementSizes = {
         H1Font: "calc(1vw + 30px)",
         H1Divider: "calc(25% + 10px)",
+        blogHomeWidth: "calc(40vw + 180px)",
+        blogHomeEntryFont: BLOG_HOME_ENTRY_FONT,
+        blogHomeTagFont: BLOG_HOME_ENTRY_FONT,
+        blogHomeColumnFont: BLOG_HOME_ENTRY_FONT,
         blogEntryHR: "calc(10% + 50px)",
         blogEntryArticleFont: BLOG_ENTRY_ARTICLE_FONT,
         blogEntryArticleEle: "calc(35vw + 205px)",

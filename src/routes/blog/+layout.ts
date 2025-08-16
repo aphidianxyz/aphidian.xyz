@@ -14,9 +14,10 @@ export const load: LayoutLoad = () => {
             { 
                 slug: 'welcome-to-my-blog-the-sequel',
                 date: 'aug 07 2025',
-                title: 'Welcome to my blog! (the Sequel)',
+                title: 'Welcome to my blog! (the Sequel no one asked for)',
                 tags: ['meta',
-                    'second-post'],
+                    'second-post',
+                    'redundant-post'],
                 contentFile: '/blogEntries/welcome-to-my-blog.html'
             },
             { 
