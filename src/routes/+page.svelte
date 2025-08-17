@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { LayoutProps } from './$types';
     import type { ColorPalette, ColorHex, NavEntryList } from './+layout';
-    import type { NavEntry } from './proxy+layout';
+    import type { ElementSizes, NavEntry } from './proxy+layout';
 
     import Logo from '$lib/components/Logo.svelte';
     import Title from '$lib/components/Title.svelte';
@@ -9,6 +9,10 @@
     import { darkMode } from './darkModeState.svelte';
     let { data }: LayoutProps = $props();
 
+    // element sizes
+    const sizes: ElementSizes = data.elementSizes;
+
+    // nav entries
     const ne: NavEntryList = data.navElements;
     const blog: NavEntry = ne.blog;
     const projects: NavEntry = ne.projects;
@@ -18,6 +22,7 @@
     const entry_descs: string[] = [blog.desc, projects.desc, about.desc];
     const entry_dests: string[] = [blog.dest, projects.dest, about.dest];
 
+    // colors
     const palette: ColorPalette = data.palette;
     const icon: ColorPalette = data.icon;
     let dark: boolean = $derived(darkMode.state);
@@ -27,17 +32,18 @@
 </script>
 
 <style>
-    main {
+    main, section, .themeSwitcher {
         display: flex;
+    }
+
+    main {
         flex-direction: column;
         align-items: center;
         align-self: center;
         justify-content: center;
-        height: calc(80vh + 20px);
     }
 
     section {
-        display: flex;
         align-items: center;
         justify-items: center;
     }
@@ -56,12 +62,7 @@
         text-decoration: underline;
     }
 
-    nav {
-        font-size: calc(1vw + 20px);
-    }
-
     .themeSwitcher {
-        display: flex;
         justify-content: end;
     }
 </style>
@@ -73,7 +74,9 @@
 <div class="themeSwitcher">
     <ThemeSwitcher margin="1vh 1vw 0 0"/>
 </div>
-<main>
+<main
+    style:height={sizes.homeHeight}
+>
     <section style:margin-bottom="1vh">
         <Logo 
             imgHeight="auto" 
@@ -88,7 +91,9 @@
             {titleColor}
         />
     </section>
-    <nav>
+    <nav
+        style:font-size={sizes.homeNavFont}
+    >
         <ul style:list-style="none">
             {#each nav_entries as entry, i}
                 <li>

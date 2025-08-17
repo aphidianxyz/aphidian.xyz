@@ -1,3 +1,1 @@
-export let darkMode = $state({
-    state: false,
-});
+export let darkMode = $state({ state: false });

@@ -47,6 +47,7 @@ export const load: LayoutLoad = () => {
             dark: "#BA7A3B"
         }
     };
+
     const icon: ColorPalette = {
         full: {
             light: "/aphid-icon-light.svg",
@@ -57,6 +58,7 @@ export const load: LayoutLoad = () => {
             dark: "/aphid-icon-crop-dark.svg"
         },
     };
+
     const navElements: NavEntryList = {
         home: {
             name: "home",
@@ -89,9 +91,12 @@ export const load: LayoutLoad = () => {
             desc: "about aphids",
         },
     };
+
     const BLOG_ENTRY_ARTICLE_FONT = "calc(0.8vw + 12px)";
     const BLOG_HOME_ENTRY_FONT = "calc(0.5vw + 18px)";
     const elementSizes: ElementSizes = {
+        homeHeight: "calc(80vh + 20px)",
+        homeNavFont: "calc(1vw + 20px)",
         H1Font: "calc(1vw + 30px)",
         H1Divider: "calc(25% + 10px)",
         blogHomeWidth: "calc(40vw + 180px)",
