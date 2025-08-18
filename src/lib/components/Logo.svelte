@@ -3,7 +3,7 @@
         imgHeight,
         imgWidth,
         borderStyle = "solid",
-        borderRadius = "8px",
+        borderRadius = "0.75vw",
         borderWidth,
         borderColor,
         logoFile,

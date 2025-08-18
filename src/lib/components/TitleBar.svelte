@@ -12,13 +12,13 @@
 
     const { 
         data,
-        imgWidth = "calc(3vw + 20px)", 
-        imgHeight = "auto", 
-        imgMargin = "0px 0.5vw 0px 0px", 
-        borderWidth = "3px", 
-        titleMargin = "0 1.25vw 0px 0px", 
-        titleFontSize = "calc(2vw + 20px)", 
-        navFontSize = "calc(0.75vw + 12.5px)",
+        imgWidth = data.elementSizes.defTitleIconWidth,
+        imgHeight = data.elementSizes.defTitleIconHeight,
+        imgMargin = data.elementSizes.defTitleIconMargin,
+        borderWidth = data.elementSizes.defTitleIconBorderWidth,
+        titleMargin = data.elementSizes.defTitleTitleMargin,
+        titleFontSize = data.elementSizes.defTitleTitleFont,
+        navFontSize = data.elementSizes.defTitleNavFont,
         navEntries
     }:{
         data: any 
@@ -51,20 +51,21 @@
 </script>
 
 <style>
-    .mainContainer {
+    .titleBar, .titleAndNav, nav {
         display: flex;
+    }
+
+    .titleBar {
         justify-content: space-between;
         margin-top: 1vh;
     }
 
     .titleAndNav {
-        display: flex;
         align-items: center;
         margin-left: 1vw;
     }
 
     nav {
-        display: flex;
         align-self: center;
         font-family: AlegreyaSans;
         margin-top: 1vh;
@@ -81,7 +82,7 @@
 
 </style>
 
-<div class="mainContainer">
+<div class="titleBar">
     <div class="titleAndNav">
         <Logo 
             {imgWidth}
@@ -110,6 +111,6 @@
         </nav>
     </div>
     <div class="themeSwitcher">
-        <ThemeSwitcher margin="-0.5vh 0.5vw 0 0"/>
+        <ThemeSwitcher {data} />
     </div>
 </div>

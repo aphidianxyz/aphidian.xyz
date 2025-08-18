@@ -59,18 +59,18 @@
         margin-bottom: 0;
     }
 
-    h1, h3, hr, .tagLink {
+    h1, h3, hr {
         font-family: Alegreya;
     }
 
-    article {
+    article, .tagLink {
         font-family: AlegreyaSans;
     }
 
     :global(article .imgWithSub) {
         flex-direction: column;
         align-items: center;
-        gap: 0.5vh;
+        gap: var(--imgSubGap);
     }
 
     :global(article a) {
@@ -88,7 +88,7 @@
 
     :global(article pre) {
         border-color: var(--codeBorderColor);
-        border: 1px solid;
+        border: var(--preBorder);
     }
 
     main {
@@ -161,7 +161,13 @@
             style:width={sizes.blogEntryArticleEle}
             style:font-size={sizes.blogEntryArticleFont}
             style:color={fontColor}
-            style="--linkColor: {linkColor};--codeBorderColor: {titleFontColor};--codeFontSize: {sizes.blogEntryCode}"
+            style="
+                --linkColor: {linkColor};
+                --codeBorderColor: {titleFontColor};
+                --codeFontSize: {sizes.blogEntryCode};
+                --preBorder: {sizes.blogEntryPreBorder};
+                --imgSubGap: {sizes.blogEntryImgSubGap}
+                "
         >
             {@html content} 
         </article>

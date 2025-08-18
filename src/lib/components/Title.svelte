@@ -1,5 +1,10 @@
 <script lang="ts">
-    let { margin="0px 0px 0px 0px", fontSize, titleColor } = $props();
+    let { margin="0px 0px 0px 0px", fontSize, titleColor }:
+    { 
+        margin?: string,
+        fontSize: string,
+        titleColor: string
+    }= $props();
 </script>
 
 <style>

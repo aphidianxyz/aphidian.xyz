@@ -1,10 +1,12 @@
 <script lang="ts">
     import { darkMode } from "../../routes/darkModeState.svelte";
 
-    let { 
+    const { 
+        data,
         margin = '0 0 0 0', 
-        iconSize = 'calc(1.5vw + 10px)'
+        iconSize = data.elementSizes.defThemeSwitcherIconWidth
     }:{
+        data: any,
         margin?: string,
         iconSize?: string
     } = $props();

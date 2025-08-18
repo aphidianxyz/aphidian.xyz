@@ -7,6 +7,7 @@
     import Title from '$lib/components/Title.svelte';
     import ThemeSwitcher from '$lib/components/ThemeSwitcher.svelte';
     import { darkMode } from './darkModeState.svelte';
+
     let { data }: LayoutProps = $props();
 
     // element sizes
@@ -72,7 +73,10 @@
 </svelte:head>
 
 <div class="themeSwitcher">
-    <ThemeSwitcher margin="1vh 1vw 0 0"/>
+    <ThemeSwitcher 
+        {data} 
+        margin="1vh 1vw 0 0"
+    />
 </div>
 <main
     style:height={sizes.homeHeight}

@@ -18,16 +18,15 @@
         margin: 0;
     }
 
-    .mainContainer {
+    .siteContainer {
         display: flex;
         flex-direction: column;
         min-height: 100vh;
     }
 
-    .childContainer {
+    .pageContainer{
         flex: 1;
     }
-
 </style>
 
 <svelte:head>
@@ -40,12 +39,15 @@
 </svelte:head>
 
 <div 
-    class="mainContainer"
+    class="siteContainer"
     style:background-color={bgColor}
 >
-    <div class="childContainer">
+    <div class="pageContainer">
         {@render children()}
     </div>
-    <Footer {footerLinkColor} />
+    <Footer 
+        {data} 
+        {footerLinkColor} 
+    />
 </div>
 

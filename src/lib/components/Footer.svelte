@@ -1,5 +1,15 @@
 <script lang="ts">
-    let { footerLinkColor }: { footerLinkColor: string } = $props();
+    import type { LayoutData } from "../../routes/$types";
+
+    const {
+        data,
+        footerLinkColor,
+        footerMargin = data.elementSizes.footerMargin
+    }: { 
+        data: LayoutData,
+        footerLinkColor: string,
+        footerMargin?: string
+    } = $props();
 </script>
 
 <style>
@@ -12,7 +22,7 @@
     }
 
     footer {
-        margin-bottom: 20px;
+        margin: var(--margin);
     }
 </style>
 
@@ -22,6 +32,7 @@
     style:text-align="center"
     style:font-weight="normal"
     style:font-style="normal"
+    style:margin={footerMargin}
 >
     <a 
         style:color={footerLinkColor}
