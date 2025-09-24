@@ -125,6 +125,13 @@
     >
         {entry.title}
     </h1>
+    <h3
+        style:font-size={sizes.blogEntryArticleFont}
+        style:font-family="AlegreyaSans"
+        style:color={fontColor}
+    >
+        {entry.date}
+    </h3>
     {#if entry.tags.length > 0}
         <h3
             style:font-family="AlegreyaSans"
@@ -152,13 +159,6 @@
         style:width={sizes.blogEntryHR}
         style:color={titleFontColor}
     >
-    <h3
-        style:font-size={sizes.blogEntryArticleFont}
-        style:font-family="AlegreyaSans"
-        style:color={fontColor}
-    >
-        {entry.date}
-    </h3>
     {#await contentPromise then}
         <article
             style:width={sizes.blogEntryArticleEle}
