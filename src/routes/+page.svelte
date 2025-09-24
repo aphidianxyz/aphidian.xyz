@@ -75,7 +75,6 @@
 <div class="themeSwitcher">
     <ThemeSwitcher 
         {data} 
-        margin="1vh 1vw 0 0"
     />
 </div>
 <main
@@ -83,15 +82,14 @@
 >
     <section style:margin-bottom="1vh">
         <Logo 
-            imgHeight="auto" 
-            imgWidth="12vw"
+            imgWidth={sizes.homeLogoImgWidth}
             borderWidth="calc(0.25vw + 2px)"
             borderColor={titleColor}
             {logoFile}
             margin="0px 1vw 0px 0px"
         />
         <Title
-            fontSize="calc(9vw + 30px)"
+            fontSize={sizes.homeTitleFont}
             {titleColor}
         />
     </section>

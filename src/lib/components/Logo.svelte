@@ -1,23 +1,23 @@
 <script lang="ts">
     const {
-        imgHeight,
-        imgWidth,
+        imgHeight = "auto",
+        imgWidth = "auto",
         borderStyle = "solid",
         borderRadius = "0.75vw",
-        borderWidth,
+        borderWidth = "1px",
         borderColor,
         logoFile,
-        margin,
+        margin = "0",
         alt = "aphidian logo",
     }: {
-        imgHeight: string,
-        imgWidth: string,
+        imgHeight?: string,
+        imgWidth?: string,
         borderStyle?: string,
         borderRadius?: string,
-        borderWidth: string,
+        borderWidth?: string,
         borderColor: string,
         logoFile: string,
-        margin: string
+        margin?: string
         alt?: string,
     }= $props();
 </script>

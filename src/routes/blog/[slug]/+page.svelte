@@ -125,6 +125,7 @@
     </h1>
     {#if entry.tags.length > 0}
         <h3
+            style:font-family="AlegreyaSans"
             style:font-size={sizes.blogEntryArticleFont}
             style:color={titleFontColor}
         >

@@ -66,7 +66,7 @@
         text-decoration: underline;
     }
 
-    .blogEntryLink, .tagContainer {
+    .columnNames, .blogEntryLink, .tagContainer {
         font-family: AlegreyaSans;
     }
 

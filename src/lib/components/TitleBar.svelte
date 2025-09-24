@@ -57,12 +57,19 @@
 
     .titleBar {
         justify-content: space-between;
-        margin-top: 1vh;
     }
 
     .titleAndNav {
         align-items: center;
+        margin-top: 1vh;
         margin-left: 1vw;
+    }
+
+    .themeSwitcher {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        align-self: flex-start;
     }
 
     nav {
@@ -97,15 +104,15 @@
             fontSize={titleFontSize} 
             {titleColor}
         />
-        <nav>
+        <nav
+            style:font-size={navFontSize}
+        >
             {#each navEntryNames as navEntryName, i}
                 <a 
                     style:color={hyperlinkColor}
-                    style:font-size={navFontSize}
                     href="{navEntryDests[i]}" title={navEntryDescs[i]}
                 >
-                    {navEntryEmojis[i]}
-                    {navEntryName}
+                    {navEntryEmojis[i]} {navEntryName}
                 </a>
             {/each}
         </nav>

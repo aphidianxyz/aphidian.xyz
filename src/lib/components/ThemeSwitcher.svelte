@@ -3,7 +3,7 @@
 
     const { 
         data,
-        margin = '0 0 0 0', 
+        margin = data.elementSizes.defThemeSwitcherMargin,
         iconSize = data.elementSizes.defThemeSwitcherIconWidth
     }:{
         data: any,
@@ -19,7 +19,6 @@
 
 <style>
     button {
-        align-self: flex-end;
         background: none;
         border: none;
     }
