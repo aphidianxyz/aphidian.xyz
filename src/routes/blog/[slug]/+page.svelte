@@ -47,24 +47,13 @@
 </script>
 
 <style>
+    /* CSS rules for encapsulated blog entry */
     :global(article .imgWithSub), main, nav {
         display: flex;
     }
 
     h1, :global(article h1, h2, h3, h4, h5, h6) {
         text-align: center;
-    }
-
-    h1, h3, .tagLink, article, nav {
-        margin-bottom: 0;
-    }
-
-    h1, h3, hr {
-        font-family: Alegreya;
-    }
-
-    article, .tagLink {
-        font-family: AlegreyaSans;
     }
 
     :global(article .imgWithSub) {
@@ -89,6 +78,19 @@
     :global(article pre) {
         border-color: var(--codeBorderColor);
         border: var(--preBorder);
+    }
+
+    /* CSS rules for base page */
+    h1, h3, .tagLink, article, nav {
+        margin-bottom: 0;
+    }
+
+    h1, h3, hr {
+        font-family: Alegreya;
+    }
+
+    article, .tagLink {
+        font-family: AlegreyaSans;
     }
 
     main {
@@ -145,11 +147,11 @@
                 </a>{#if entry.tags.length - i > 1},&nbsp;{/if}
             {/each}
         </nav>
-        <hr
-            style:width={sizes.blogEntryHR}
-            style:color={titleFontColor}
-        >
     {/if}
+    <hr
+        style:width={sizes.blogEntryHR}
+        style:color={titleFontColor}
+    >
     <h3
         style:font-size={sizes.blogEntryArticleFont}
         style:font-family="AlegreyaSans"

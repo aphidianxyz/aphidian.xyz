@@ -12,6 +12,13 @@ export const load: LayoutLoad = () => {
     const entries: blogEntry[] = [
             // newer entries start here
             { 
+                slug: 'welcome-to-my-blog-tagless',
+                date: 'sep 24 2025',
+                title: 'Welcome to my tagless blog entry!',
+                tags: [],
+                contentFile: '/blogEntries/welcome-to-my-blog.html'
+            },
+            { 
                 slug: 'welcome-to-my-blog-the-sequel',
                 date: 'aug 07 2025',
                 title: 'Welcome to my blog! (the Sequel no one asked for)',
