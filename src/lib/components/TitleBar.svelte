@@ -85,7 +85,6 @@
     a:hover {
         text-decoration: underline;
     }
-
 </style>
 
 <div class="titleBar">

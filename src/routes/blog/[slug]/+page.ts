@@ -16,7 +16,7 @@ export const load: PageLoad = async ({ params, parent }) => {
     const entry: blogEntry = {
         slug: 'error-missing-article',
         date: '',
-        title: '',
+        title: '404 - Article does not exist',
         tags: [],
         contentFile: '/blogEntries/missing-article.html',
     };
