@@ -169,14 +169,14 @@
                 --codeBorderColor: {titleFontColor};
                 --codeFontSize: {sizes.blogEntryCode};
                 --preBorder: {sizes.blogEntryPreBorder};
-                --imgSubGap: {sizes.blogEntryImgSubGap}
+                --imgSubGap: {sizes.blogEntryImgSubGap};
                 "
         >
             {@html content} 
         </article>
     {:catch}
         <article>
-            <p>Failed to load article; please try refreshing or <a href="/about">contact me</a></p>
+            <p>Failed to load article, please try refreshing or <a href="/about">contact me</a></p>
         </article>
     {/await}
     <hr

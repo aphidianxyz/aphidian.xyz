@@ -66,9 +66,8 @@
     }
 
     .themeSwitcher {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0;
+        position: fixed;
+        right: 0vw;
         align-self: flex-start;
     }
 
