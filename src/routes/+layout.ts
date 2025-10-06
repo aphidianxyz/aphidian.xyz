@@ -133,6 +133,8 @@ export const load: LayoutLoad = () => {
         // /tags & /tags/[slug]
         tagsHomeNavEle: "calc(50vw + 50px)",
         tagsFont: BLOG_ENTRY_ARTICLE_FONT,
+        // /projects
+        projectEntryFont: BLOG_HOME_ENTRY_FONT,
     };
 
     return {

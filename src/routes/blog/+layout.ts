@@ -8,6 +8,7 @@ export type blogEntry = {
     contentFile: string
 }
 
+// TODO: maybe this could be loaded from a JSON file instead
 export const load: LayoutLoad = () => {
     const entries: blogEntry[] = [
             // newer entries start here
@@ -39,5 +40,5 @@ export const load: LayoutLoad = () => {
 
     return {
         entries: entries
-    }
+    };
 }
