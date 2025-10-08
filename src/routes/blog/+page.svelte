@@ -6,6 +6,7 @@
     import type { blogEntry } from "./proxy+layout";
 
     import TitleBar from '$lib/components/TitleBar.svelte';
+    import Divider from '$lib/components/Divider.svelte';
     import { darkMode } from "../darkModeState.svelte";
 
     let { data }: LayoutProps = $props();
@@ -130,10 +131,10 @@
             >tags</a>
         </h2>
     </div>
-    <hr
-        style:width={sizes.blogHomeWidth}
-        style:color={titleColor}
-    >
+    <Divider 
+        width={sizes.blogHomeWidth} 
+        color={titleColor} 
+    />
     <nav>
         {#each entries as entry}
             <div 

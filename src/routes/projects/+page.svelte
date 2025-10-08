@@ -7,6 +7,7 @@
     import type { ProjectEntry } from "./+page";
 
     import TitleBar from '$lib/components/TitleBar.svelte';
+    import Divider from '$lib/components/Divider.svelte';
     import { darkMode } from "../darkModeState.svelte";
     let { data }: LayoutProps & PageData = $props();
 
@@ -41,7 +42,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        font-family: "Alegreya";
+        font-family: Alegreya;
     }
 
     nav, .WIPNotice {
@@ -66,7 +67,9 @@
     {data}
     navEntries={projectsNavEntries}
 />
-<main>
+<main
+    style:color={fontColor}
+>
     <h1>
         <a
             href="/projects"
@@ -76,10 +79,10 @@
             projects
         </a>
     </h1>
-    <hr
-        style:color={fontColor}
-        style:width={sizes.H1Divider}
-    >
+    <Divider 
+        width={sizes.H1Divider} 
+        color={fontColor} 
+    />
     <nav
         style:font-size={sizes.projectEntryFont}
     >

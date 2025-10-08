@@ -7,6 +7,7 @@
     import type { ElementSizes, NavEntry } from "../../proxy+layout";
 
     import TitleBar from '$lib/components/TitleBar.svelte';
+    import Divider from '$lib/components/Divider.svelte';
     import { darkMode } from "../../darkModeState.svelte";
 
     let { data }: LayoutProps & PageProps = $props();
@@ -155,10 +156,10 @@
             {/each}
         </nav>
     {/if}
-    <hr
-        style:width={sizes.blogEntryHR}
-        style:color={titleFontColor}
-    >
+    <Divider
+        width={sizes.H1Divider}
+        color={titleFontColor}
+    />
     {#await contentPromise then}
         <article
             style:width={sizes.blogEntryArticleEle}
@@ -179,8 +180,4 @@
             <p>Failed to load article, please try refreshing or <a href="/about">contact me</a></p>
         </article>
     {/await}
-    <hr
-        style:width={sizes.blogEntryHR}
-        style:color={titleFontColor}
-    >
 </main>

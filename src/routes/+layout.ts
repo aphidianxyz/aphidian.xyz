@@ -17,6 +17,7 @@ export type ColorHex = string;
 export type ElementSize = string; 
 
 export type ColorScheme = {
+    // TODO: better names; icons values for light and dark are not colorhexes
     light: ColorHex;
     dark: ColorHex;
 }
@@ -49,6 +50,7 @@ export const load: LayoutLoad = () => {
     };
 
     const icon: ColorPalette = {
+        // TODO: better names for site mascot
         full: {
             light: "/aphid-icon-light.svg",
             dark: "/aphid-icon-dark.svg",
@@ -57,6 +59,10 @@ export const load: LayoutLoad = () => {
             light: "/aphid-icon-crop-light.svg",
             dark: "/aphid-icon-crop-dark.svg"
         },
+        github: {
+            light: "/icons/github-mark/github-mark.svg",
+            dark: "/icons/github-mark/github-mark-white.svg",
+        }
     };
 
     const navElements: NavEntryList = {
@@ -135,6 +141,9 @@ export const load: LayoutLoad = () => {
         tagsFont: BLOG_ENTRY_ARTICLE_FONT,
         // /projects
         projectEntryFont: BLOG_HOME_ENTRY_FONT,
+        // /about
+        aboutBlurbFont: BLOG_ENTRY_ARTICLE_FONT,
+        iconImgWidth: "calc(2vw + 20px)",
     };
 
     return {

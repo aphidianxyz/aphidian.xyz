@@ -1,9 +1,12 @@
 <script lang="ts">
     import type { ColorPalette, ColorHex } from '../../+layout';
     import type { LayoutProps } from './$types';
+    import type { ElementSizes } from '../../proxy+layout';
 
     import { darkMode } from '../../darkModeState.svelte';
-    import type { ElementSizes } from '../../proxy+layout';
+
+    import Divider from '$lib/components/Divider.svelte';
+
     let { data }: LayoutProps = $props();
 
     // element sizes
@@ -53,9 +56,6 @@
         font-family: AlegreyaSans;
     }
 
-    hr {
-        margin-top: 0;
-    }
 </style>
 
 <main>
@@ -69,10 +69,10 @@
             tags
         </a>
     </h1>
-    <hr
-        style:width={sizes.H1Divider}
-        style:color={titleColor}
-    >
+    <Divider 
+        width={sizes.H1Divider} 
+        color={titleColor} 
+    />
     <nav
         style:width={sizes.tagsHomeNavEle}
         style:font-size={sizes.tagsFont}
