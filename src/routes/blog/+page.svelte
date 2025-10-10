@@ -38,7 +38,7 @@
 </script>
 
 <style>
-    main, .columnNames, .tagContainer, .blogEntryContainer, .pageTitle {
+    main, .columnNames, .tagContainer, .blogEntry, .pageTitle {
         display: flex;
     }
 
@@ -59,15 +59,15 @@
         gap: 0.25vw;
     }
 
-    .blogEntryLink, .tagLink, .title {
+    .articleLink, .tagLink, .title {
         text-decoration: none;
     }
 
-    .blogEntryLink:hover, .tagLink:hover, .title:hover {
+    .articleLink:hover, .tagLink:hover, .title:hover {
         text-decoration: underline;
     }
 
-    .columnNames, .blogEntryLink, .tagContainer {
+    .columnNames, .articleLink, .tagContainer {
         font-family: AlegreyaSans;
     }
 
@@ -75,12 +75,12 @@
         font-weight: bold;
     }
 
-    .blogEntryContainer {
+    .blogEntry {
         justify-content: space-between;
         margin-bottom: 2.5vh;
     }
 
-    h2 {
+    h2, .blogTitle, .tagContainer {
         margin: 0 0 0 0;
     }
 </style>
@@ -133,43 +133,36 @@
     </div>
     <nav>
         {#each entries as entry}
+            <!-- a singular blog entry listing -->
             <div 
                 style:width={sizes.blogHomeWidth}
-                class="blogEntryContainer"
+                class="blogEntry"
             >
-                <!-- Extra div encapsulation is for making the actual
-                clickable area of the link only the text itself-->
-                <div class="blogEntry">
+                <p class="blogTitle">
                     <a 
                         style:font-size={sizes.blogHomeEntryFont}
                         style:color={blogEntryLinkColor}
-                        class="blogEntryLink" 
+                        class="articleLink"
                         href="/blog/{entry.slug}"
                     >
                         {entry.title}
                     </a>
-                </div>
-                <div 
+                </p>
+                <p
                     class="tagContainer"
                     style:color={titleColor}
+                    style:font-size={sizes.blogHomeTagFont}
                 >
                     {#each entry.tags as tag, i}
-                        <!-- Extra encapsulation so that the comma stays
-                        with the tag on wrap -->
-                        <div 
-                            style:font-size={sizes.blogHomeTagFont}
-                            class="tag"
+                        <a 
+                            style:color={tagLinkColor}
+                            class="tagLink"
+                            href="/blog/tags/{tag}"
                         >
-                            <a 
-                                style:color={tagLinkColor}
-                                class="tagLink"
-                                href="/blog/tags/{tag}"
-                            >
-                                {tag}
-                            </a>{#if entry.tags.length - 1 > i},&nbsp;{/if}
-                        </div>
+                            {tag}
+                        </a>{#if entry.tags.length - 1 > i},&nbsp;{/if}
                     {/each}
-                </div>
+                </p>
             </div>    
         {/each}
     </nav>
