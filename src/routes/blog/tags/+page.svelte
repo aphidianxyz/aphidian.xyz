@@ -30,7 +30,7 @@
 </script>
 
 <style>
-    main, nav {
+    main, nav, .pageTitle  {
         display: flex;
         font-family: Alegreya;
     }
@@ -44,7 +44,7 @@
         text-decoration: underline;
     }
 
-    main {
+    main, .pageTitle {
         flex-direction: column;
         align-items: center;
         align-content: center;
@@ -59,20 +59,22 @@
 </style>
 
 <main>
-    <h1
-        style:font-size={sizes.H1Font}
-    >
-        <a 
-            style:color={titleColor}
-            href="/blog/tags"
+    <div class="pageTitle">
+        <h1
         >
-            tags
-        </a>
-    </h1>
-    <Divider 
-        width={sizes.H1Divider} 
-        color={titleColor} 
-    />
+            <a 
+                style:font-size={sizes.H1Font}
+                style:color={titleColor}
+                href="/blog/tags"
+            >
+                tags
+            </a>
+        </h1>
+        <Divider 
+            width={sizes.H1Divider} 
+            color={titleColor} 
+        />
+    </div>
     <nav
         style:width={sizes.tagsHomeNavEle}
         style:font-size={sizes.tagsFont}

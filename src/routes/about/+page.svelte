@@ -34,14 +34,13 @@
 </script>
 
 <style>
-    main {
+    main, .pageTitle, article {
         display: flex;
         flex-direction: column;
         align-items: center;
-        font-family: Alegreya;
     }
 
-    h1 {
+    .pageTitle {
         font-family: Alegreya;
     }
 
@@ -73,29 +72,34 @@
 />
 <main
     style:color={fontColor}
-    style:font-size={sizes.aboutBlurbFont}
 >
-    <h1>
-        <a 
-            href="/about"
-            style:color={fontColor}
-            style:font-size={sizes.H1Font}
-        >
-            about
-        </a>
-    </h1>
-    <Divider 
-        width={sizes.H1Divider} 
-        color={fontColor} 
-    />
-    <p>hello, i'm aphids<br>
-    programmer & system admin</p>
-    <nav>
-        <a href="https://github.com/aphidianxyz">
-            <img
-                style:width={sizes.iconImgWidth}
-                src={githubIconFile} alt="github icon"
+    <div class="pageTitle">
+        <h1>
+            <a 
+                href="/about"
+                style:color={fontColor}
+                style:font-size={sizes.H1Font}
             >
-        </a>
-    </nav>
+                about
+            </a>
+        </h1>
+        <Divider 
+            width={sizes.H1Divider} 
+            color={fontColor} 
+        />
+    </div>
+    <article
+        style:font-size={sizes.aboutBlurbFont}
+    >
+        <p>hello, i'm aphids<br>
+        programmer & system admin</p>
+        <nav>
+            <a href="https://github.com/aphidianxyz">
+                <img
+                    style:width={sizes.iconImgWidth}
+                    src={githubIconFile} alt="github icon"
+                >
+            </a>
+        </nav>
+    </article>
 </main>

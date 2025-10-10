@@ -38,11 +38,11 @@
 </script>
 
 <style>
-    main, .columnNames, .tagContainer, .blogEntryContainer {
+    main, .columnNames, .tagContainer, .blogEntryContainer, .pageTitle {
         display: flex;
     }
 
-    main {
+    main, .pageTitle {
         flex-direction: column;
         align-items: center;
         font-family: Alegreya;
@@ -59,11 +59,11 @@
         gap: 0.25vw;
     }
 
-    .blogEntryLink, .tagLink, .pageTitle {
+    .blogEntryLink, .tagLink, .title {
         text-decoration: none;
     }
 
-    .blogEntryLink:hover, .tagLink:hover, .pageTitle:hover {
+    .blogEntryLink:hover, .tagLink:hover, .title:hover {
         text-decoration: underline;
     }
 
@@ -80,14 +80,6 @@
         margin-bottom: 2.5vh;
     }
 
-    hr {
-        margin-top: 0;
-    }
-
-    h1 {
-        margin: 1vh 0 1vh 0;
-    }
-
     h2 {
         margin: 0 0 0 0;
     }
@@ -102,39 +94,43 @@
     navEntries={blogNavEntries}
 />
 <main>
-    <h1
-        style:font-size={sizes.H1Font}
-    >
-        <a 
-            style:color={titleColor}
-            class="pageTitle" href="/blog"
+    <div class="pageTitle">
+        <h1
+            style:font-size={sizes.H1Font}
         >
-            blog
-        </a>
-    </h1>
-    <div 
-        style:width={sizes.blogHomeWidth}
-        class="columnNames"
-    >
-        <h2
-            style:font-size={sizes.blogHomeColumnFont}
-            style:color={titleColor}
+            <a 
+                style:color={titleColor}
+                class="title" href="/blog"
+            >
+                blog
+            </a>
+        </h1>
+        <div 
+            style:width={sizes.blogHomeWidth}
+            class="columnNames"
         >
-            article
-        </h2>
-        <h2>
-            <a
+            <h2
                 style:font-size={sizes.blogHomeColumnFont}
                 style:color={titleColor}
-                style:text-decoration="none"
-                href="/blog/tags"
-            >tags</a>
-        </h2>
+            >
+                article
+            </h2>
+            <h2>
+                <a
+                    style:font-size={sizes.blogHomeColumnFont}
+                    style:color={titleColor}
+                    style:text-decoration="none"
+                    href="/blog/tags"
+                >
+                    tags
+                </a>
+            </h2>
+        </div>
+        <Divider 
+            width={sizes.blogHomeWidth} 
+            color={titleColor} 
+        />
     </div>
-    <Divider 
-        width={sizes.blogHomeWidth} 
-        color={titleColor} 
-    />
     <nav>
         {#each entries as entry}
             <div 

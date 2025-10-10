@@ -5,6 +5,8 @@
     import type { ColorPalette, ColorHex } from '../../../+layout';
     import type { ElementSizes } from '../../../proxy+layout';
 
+    import Divider from '$lib/components/Divider.svelte';
+
     import { darkMode } from '../../../darkModeState.svelte';
 
     let { data }: LayoutProps & PageProps = $props();
@@ -23,26 +25,21 @@
 </script>
 
 <style>
-    main, nav {
+    main, nav, .pageTitle {
         display: flex;
         flex-direction: column;
     }
 
-    main {
+    main, .pageTitle {
         align-items: center;
     }
 
     h1 {
         font-family: Alegreya;
-        font-size: var(--pageTitleFont);
     }
 
     nav {
         font-family: AlegreyaSans;
-    }
-
-    hr {
-        margin-top: 0;
     }
 
     a {
@@ -55,20 +52,21 @@
 </style>
 
 <main>
-    <h1
-        style:font-size={sizes.H1Font}
-    >
-        <a
-            style:color={primaryColor}
-            href="/blog/tags/{data.tagName}"
-        >
-            {data.tagName}
-        </a>
-    </h1>
-    <hr
-        style:width={sizes.H1Divider}
-        style:color={primaryColor}
-    >
+    <div class="pageTitle">
+        <h1>
+            <a
+                href="/blog/tags/{data.tagName}"
+                style:color={primaryColor}
+                style:font-size={sizes.H1Font}
+            >
+                {data.tagName}
+            </a>
+        </h1>
+        <Divider
+            width={sizes.H1Divider}
+            color={primaryColor}
+        />
+    </div>
     <nav
         style:font-size={sizes.blogEntryArticleFont}
     >

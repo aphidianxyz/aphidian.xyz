@@ -122,7 +122,7 @@ export const load: LayoutLoad = () => {
         homeHeight: "calc(80vh + 20px)",
         homeNavFont: "calc(1vw + 20px)",
         H1Font: GENERAL_H1_FONT,
-        H1Divider: "calc(25% + 10px)",
+        H1Divider: "calc(25vw + 10px)",
         // /blog
         blogHomeWidth: "calc(40vw + 180px)",
         blogHomeEntryFont: BLOG_HOME_ENTRY_FONT,

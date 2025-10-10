@@ -38,7 +38,7 @@
 </script>
 
 <style>
-    main {
+    main, .pageTitle {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -70,19 +70,21 @@
 <main
     style:color={fontColor}
 >
-    <h1>
-        <a
-            href="/projects"
-            style:color={fontColor}
-            style:font-size={sizes.H1Font}
-        >
-            projects
-        </a>
-    </h1>
-    <Divider 
-        width={sizes.H1Divider} 
-        color={fontColor} 
-    />
+    <div class="pageTitle">
+        <h1>
+            <a
+                href="/projects"
+                style:color={fontColor}
+                style:font-size={sizes.H1Font}
+            >
+                projects
+            </a>
+        </h1>
+        <Divider 
+            width={sizes.H1Divider} 
+            color={fontColor} 
+        />
+    </div>
     <nav
         style:font-size={sizes.projectEntryFont}
     >
