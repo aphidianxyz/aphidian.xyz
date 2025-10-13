@@ -25,6 +25,7 @@
     const icon: ColorPalette = data.icon;
     let dark: boolean = $derived(darkMode.state);
     let githubIconFile: string = $derived(dark ? icon.github.dark : icon.github.light);
+    let emailIconFile: string = $derived(dark ? icon.email.dark : icon.email.light);
     let fontColor: ColorHex = $derived(dark ? palette.primary.dark : palette.primary.light);
     let linkColor: ColorHex = $derived(dark ? palette.secondary.dark : palette.secondary.light);
 
@@ -94,12 +95,21 @@
         <p>hello, i'm aphids<br>
         programmer & system admin</p>
         <nav>
-            <a href="https://github.com/aphidianxyz">
-                <img
-                    style:width={sizes.iconImgWidth}
-                    src={githubIconFile} alt="github icon"
-                >
-            </a>
+            <p>find/contact me here:</p>
+            <p>
+                <a href="https://github.com/aphidianxyz">
+                    <img
+                        style:width={sizes.iconImgWidth}
+                        src={githubIconFile} alt="github icon"
+                    >
+                </a>
+                <a href="mailto:aphidian@posteo.net">
+                    <img
+                        style:width={sizes.iconImgWidth}
+                        src={emailIconFile} alt="mail icon"
+                    >
+                </a>
+            </p>
         </nav>
     </article>
 </main>

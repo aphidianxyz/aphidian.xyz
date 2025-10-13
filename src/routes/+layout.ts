@@ -62,7 +62,11 @@ export const load: LayoutLoad = () => {
         github: {
             light: "/icons/github-mark/github-mark.svg",
             dark: "/icons/github-mark/github-mark-white.svg",
-        }
+        },
+        email: {
+            light: "/icons/misc/mailbox_with_mail.png",
+            dark: "/icons/misc/mailbox_with_mail.png",
+        },
     };
 
     const navElements: NavEntryList = {
