@@ -52,12 +52,12 @@ export const load: LayoutLoad = () => {
     const icon: ColorPalette = {
         // TODO: better names for site mascot
         full: {
-            light: "/aphid-icon-light.svg",
-            dark: "/aphid-icon-dark.svg",
+            light: "icons/mascot/aphid-icon-light.svg",
+            dark: "/icons/mascot/aphid-icon-dark.svg",
         },
         cropped: {
-            light: "/aphid-icon-crop-light.svg",
-            dark: "/aphid-icon-crop-dark.svg"
+            light: "/icons/mascot/aphid-icon-crop-light.svg",
+            dark: "/icons/mascot/aphid-icon-crop-dark.svg"
         },
         github: {
             light: "/icons/github-mark/github-mark.svg",
