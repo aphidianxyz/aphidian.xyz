@@ -86,7 +86,7 @@
         margin-bottom: 0;
     }
 
-    h1, h3, hr {
+    h1, h3 {
         font-family: Alegreya;
     }
 
@@ -112,7 +112,6 @@
         flex-wrap: wrap;
         justify-content: center;
     }
-
 </style>
 
 <TitleBar

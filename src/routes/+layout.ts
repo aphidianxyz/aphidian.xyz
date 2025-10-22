@@ -102,7 +102,7 @@ export const load: LayoutLoad = () => {
         },
     };
 
-    const BLOG_ENTRY_ARTICLE_FONT = "calc(0.8vw + 12px)";
+    const BLOG_ENTRY_ARTICLE_FONT = "calc(0.8vw + 15px)";
     const BLOG_HOME_ENTRY_FONT = "calc(1vw + 16px)";
     const GENERAL_H1_FONT = "calc(2vw + 18px)";
     const elementSizes: ElementSizes = {
@@ -112,7 +112,7 @@ export const load: LayoutLoad = () => {
         // title/titlebar components
         defTitleIconWidth: "calc(3vw + 20px)",
         defTitleIconHeight: "auto",
-        defTitleIconMargin: "0 0.5vw 0 0",
+        defTitleIconMargin: "0 0.25vw 0 0",
         defTitleIconBorderWidth: "0.3vh",
         defTitleTitleMargin: "0 1.25vw 0 0",
         defTitleTitleFont: GENERAL_H1_FONT,
@@ -135,7 +135,7 @@ export const load: LayoutLoad = () => {
         // /blog/[slug]
         blogEntryHR: "calc(10% + 50px)",
         blogEntryArticleFont: BLOG_ENTRY_ARTICLE_FONT,
-        blogEntryArticleEle: "calc(35vw + 205px)",
+        blogEntryArticleEle: "calc(50vw + 120px)",
         blogEntryTagsNav: "calc(50vw + 50px)",
         blogEntryCode: "calc(0.5vw + 10px)",
         blogEntryPreBorder: "1px solid",

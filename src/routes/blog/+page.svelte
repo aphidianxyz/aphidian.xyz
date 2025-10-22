@@ -84,7 +84,7 @@
         margin: 0 0 0 0;
     }
 </style>
-
+<!-- might need to make this a component so that we can dynamically change titles in children -->
 <svelte:head>
     <title>blog | aphidian.xyz</title>
 </svelte:head>
