@@ -1,0 +1,49 @@
+<h2 id="hello-world"><a href="#hello-world">hello, world!</a></h2>
+<p>
+    Welcome to my blog, online I'm known as <em><strong>aphids</strong></em> or <em><strong>aphidian</strong></em>. I'm a programmer/system administrator. I made this blog so that I could have my very own self-hosted outlet to post about various topics that interest me and to document my endeavors in programming/homelabbing. I've been daily driving Arch Linux since 2021, I might write about my experiences with Linux in another blog entry, but the experience has generally been positive for me. Music has been a growing aspect of my life starting in my later adolescence; I love metal music (mostly black metal, but I'm quite familiar with other metal subgenres also), post-punk, alt-rock and ambient music. I love lifting weights, hiking and gardening as well.
+</p>
+
+<p>
+    As you might be able to tell, I haven't written any long-form prose since I've graduated from university, so my writing is not as well-expressed nor as articulate as I'd like it to be. I hope that these blog entries serves as effective exercises in improving my writing, and I apologize if you find my entries to be clumsly written. I greatly appreciate anyone reading what I have to say, though, and I'm more than happy to answer any questions about any of my posts if you <a href="/about">contact me</a>.
+</p>
+
+<h4 id="technical-overview"><a href="#technical-overview">technical overview of the blog</a></h4>
+
+<p>
+    I wrote a mini-framework for writing these blog entries using SvelteKit. Utilizing a static-site generator like <a href="https://gohugo.io/">Hugo</a> or <a href="https://jekyllrb.com/">Jekyll</a> would be less effort, but I wanted to have the flexibility to add JS components on my site while learning a frontend framework. That being said, I would recommend the previously mentioned static-site generators if you wanted to have a quick and easy blog. 
+</p>
+
+<p>
+    The section below will show how various blog elements are rendered. There's no literary content after this paragraph.
+</p>
+
+<h2 id="blog-elements"><a href="#blog-elements">blog element sampler</a></h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h2 id="a-heading"><a href="#a-heading">a heading</a></h2>
+<p>Some text in-between a heading</p>
+<h4 id="a-sub-heading"><a href="#a-sub-heading">a sub-heading</a></h4>
+<p>Paragraph with <strong>strong</strong>, <em>emphasized</em>, <u>underlined</u>, and <s>strikethrough</s> text</p>
+<p><a href="/blog/welcome-to-my-blog">links!</a></p>
+<div class="imgWithSub">
+    <img style="width:50%" src="/icons/mascot/aphid-icon-crop-light.svg" alt="an aphid">
+    <sub>an <a href="https://en.wikipedia.org/wiki/Aphid">aphid</a></sub>
+</div>
+<p>Here is a fibonacci implementation in <code>Go</code>:</p>
+<pre>
+<code>
+func fib(num int) *big.Int {
+    switch num {
+    case 0: 
+        return big.NewInt(0)
+    case 1:
+        return big.NewInt(1)
+    default:
+        sum := big.NewInt(0)
+        sum.Add(sum, fibNoDyn(num - 1))
+        sum.Add(sum, fibNoDyn(num - 2))
+        return sum
+    }
+}
+</code>
+</pre>
+
