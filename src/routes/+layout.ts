@@ -128,7 +128,7 @@ export const load: LayoutLoad = () => {
         H1Font: GENERAL_H1_FONT,
         H1Divider: "calc(25vw + 10px)",
         // /blog
-        blogHomeWidth: "calc(40vw + 180px)",
+        blogHomeWidth: "calc(50vw + 120px)",
         blogHomeEntryFont: BLOG_HOME_ENTRY_FONT,
         blogHomeTagFont: BLOG_HOME_ENTRY_FONT,
         blogHomeColumnFont: BLOG_HOME_ENTRY_FONT,
