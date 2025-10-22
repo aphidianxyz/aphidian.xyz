@@ -1,49 +1,26 @@
 <h2 id="hello-world"><a href="#hello-world">hello, world!</a></h2>
 <p>
-    Welcome to my blog, online I'm known as <em><strong>aphids</strong></em> or <em><strong>aphidian</strong></em>. I'm a programmer/system administrator. I made this blog so that I could have my very own self-hosted outlet to post about various topics that interest me and to document my endeavors in programming/homelabbing. I've been daily driving Arch Linux since 2021, I might write about my experiences with Linux in another blog entry, but the experience has generally been positive for me. Music has been a growing aspect of my life starting in my later adolescence; I love metal music (mostly black metal, but I'm quite familiar with other metal subgenres also), post-punk, alt-rock and ambient music. I love lifting weights, hiking and gardening as well.
+    Hello, and welcome to my blog. Online, I'm known as <em><strong>aphids</strong></em> or <em><strong>aphidian</strong></em>. I am a recent CS grad, programmer and system administrator. I'm a Linux enthusiast; I've been daily-driving Arch Linux since 2021 and I usually like to image Debian for my home server and VPSes. Music has been a growing influence in my life since my later adolescence, I'm most fond with metal music (primarily black metal, though I'm well acquainted with various other metal subgenres), post-punk, alt. rock and ambient music. I also love lifting weights & calisthenics, hiking and gardening. I programmed and self-hosted this blog to serve as an outlet for my aforementioned topics and interests, but I might also discuss current events or write guides if I think I have something worth sharing.
 </p>
-
 <p>
-    As you might be able to tell, I haven't written any long-form prose since I've graduated from university, so my writing is not as well-expressed nor as articulate as I'd like it to be. I hope that these blog entries serves as effective exercises in improving my writing, and I apologize if you find my entries to be clumsly written. I greatly appreciate anyone reading what I have to say, though, and I'm more than happy to answer any questions about any of my posts if you <a href="/about">contact me</a>.
+    If you're generally well read, you might be able to tell that I haven't written much long-form prose since graduating university; my writing is not as well-expressed nor as articulate as I'd like it to be. I hope that my writing does improve as I add more blog entries to this site, and I hope that my writing isn't too clumsy that it detracts you from reading them. Regardless, I appreciate if these entries get read at all, and I'm more than happy to receive comments or questions about them if you contact me <a href="/about">here</a>.
 </p>
 
 <h4 id="technical-overview"><a href="#technical-overview">technical overview of the blog</a></h4>
-
 <p>
-    I wrote a mini-framework for writing these blog entries using SvelteKit. Utilizing a static-site generator like <a href="https://gohugo.io/">Hugo</a> or <a href="https://jekyllrb.com/">Jekyll</a> would be less effort, but I wanted to have the flexibility to add JS components on my site while learning a frontend framework. That being said, I would recommend the previously mentioned static-site generators if you wanted to have a quick and easy blog. 
+    This blog is running on a mini-framework that I wrote using SvelteKit. It's not extremely advanced, it just provides a way to easily implement code reuse for various elements of a blog (tagging system, styling, indexing entries, etc). One could easily accomplish most of this site's functionality through a (SSG static-site generator) like <a href="https://gohugo.io">Hugo</a> or <a href="https://jekyllrb.com">Jekyll</a>. Personally, there are a few reasons why I opted to write my blog without one.
 </p>
-
+<ol>
+        <li>I wanted the flexibility to potentially implement dynamic components in the future</li>
+        <li>This was an excuse to learn a frontend technology</li>
+</ol>
 <p>
-    The section below will show how various blog elements are rendered. There's no literary content after this paragraph.
+    If I'm remembering correctly, some SSGs allow users to program JS components, or you could use a frontend technology on top of an SSG, but I feel like that's more convoluted than necessary. A CMS could fill my requirement for the first point, but I feel like that's overkill for a site that's relatively minimal like mine. That being said, using a SSG or CMS would probably be the recommended option for starting your own blog, but my experience programming this site was enjoyable. This blog is currently source-avaliable on <a href="https://github.com/aphidianxyz/aphidian.xyz">Github</a> (feel free to create an issue/PR to call me stupid), and I'll put a permissive license on it in the near future.
 </p>
-
-<h2 id="blog-elements"><a href="#blog-elements">blog element sampler</a></h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<h2 id="a-heading"><a href="#a-heading">a heading</a></h2>
-<p>Some text in-between a heading</p>
-<h4 id="a-sub-heading"><a href="#a-sub-heading">a sub-heading</a></h4>
-<p>Paragraph with <strong>strong</strong>, <em>emphasized</em>, <u>underlined</u>, and <s>strikethrough</s> text</p>
-<p><a href="/blog/welcome-to-my-blog">links!</a></p>
-<div class="imgWithSub">
-    <img style="width:50%" src="/icons/mascot/aphid-icon-crop-light.svg" alt="an aphid">
-    <sub>an <a href="https://en.wikipedia.org/wiki/Aphid">aphid</a></sub>
-</div>
-<p>Here is a fibonacci implementation in <code>Go</code>:</p>
-<pre>
-<code>
-func fib(num int) *big.Int {
-    switch num {
-    case 0: 
-        return big.NewInt(0)
-    case 1:
-        return big.NewInt(1)
-    default:
-        sum := big.NewInt(0)
-        sum.Add(sum, fibNoDyn(num - 1))
-        sum.Add(sum, fibNoDyn(num - 2))
-        return sum
-    }
-}
-</code>
-</pre>
-
+<p>
+    If you want to see how each element is rendered, here's <a href="/blog/blog-demo-entry" data-sveltekit-reload>a demo page</a>.
+</p>
+<p>
+    Thanks for reading.<br>
+    aphids
+</p>

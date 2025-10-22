@@ -133,6 +133,8 @@
     </div>
     <nav>
         {#each entries as entry}
+            <!-- wish there was a way to break out of each blocks in svelte -->
+            {#if !entry.isHidden}
             <!-- a singular blog entry listing -->
             <div 
                 style:width={sizes.blogHomeWidth}
@@ -164,6 +166,7 @@
                     {/each}
                 </p>
             </div>    
+            {/if}
         {/each}
     </nav>
 </main>

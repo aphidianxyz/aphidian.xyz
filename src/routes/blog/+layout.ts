@@ -5,7 +5,8 @@ export type blogEntry = {
     date: string,
     title: string,
     tags: string[],
-    contentFile: string
+    contentFile: string,
+    isHidden: boolean
 }
 
 // TODO: maybe this could be loaded from a JSON file instead
@@ -18,8 +19,17 @@ export const load: LayoutLoad = () => {
                 title: 'hello world!',
                 tags: ['meta',
                     'first-post'],
-                contentFile: '/blogEntries/hello-world.html'
+                contentFile: '/blogEntries/hello-world.html',
+                isHidden: false
             },
+            {
+                slug: 'blog-demo-entry',
+                date: 'july 20 1969',
+                title: 'blog demo entry',
+                tags: [],
+                contentFile: '/blogEntries/blog-demo-entry.html',
+                isHidden: true
+            }
         ]
 
     return {

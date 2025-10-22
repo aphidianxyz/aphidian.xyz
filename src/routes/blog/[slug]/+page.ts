@@ -19,6 +19,7 @@ export const load: PageLoad = async ({ params, parent }) => {
         title: '404 - Article does not exist',
         tags: [],
         contentFile: '/blogEntries/missing-article.html',
+        isHidden: true,
     };
     return {
         entry
