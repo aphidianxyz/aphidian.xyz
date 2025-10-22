@@ -14,7 +14,7 @@ export const load: LayoutLoad = () => {
             // newer entries start here
             { 
                 slug: 'hello-world',
-                date: 'oct 12 2025',
+                date: 'oct 21 2025',
                 title: 'hello world!',
                 tags: ['meta',
                     'first-post'],
