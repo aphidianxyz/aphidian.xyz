@@ -90,7 +90,7 @@
         font-family: Alegreya;
     }
 
-    article, .tagLink {
+    article, .tagLink, nav {
         font-family: AlegreyaSans;
     }
 
